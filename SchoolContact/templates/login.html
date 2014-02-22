@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>登陆首页</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div>
+        <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h2>
+    </div>
+    <br>
+    <div style="border-top: 20px;border-bottom: 20px">
+        <hr>
+    </div>
+
+    <div class="jumbotron">
+        <form class="form-horizontal" onsubmit="return checkForm()" role="form" action="/login_in" method="POST">
+            <div class="navbar-text navbar-left">
+
+            </div>
+             {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                    <ul>
+                     {% for message in messages %}
+                 <li style="color:#ff0000">{{ message }} </li>
+                   {% endfor %}
+                  </ul>
+                 {% endif %}
+               {% endwith %}
+                <div class="form-group row">
+                    <div>
+                        <input type="mobile" class="form-control" id="inputMobile" name="inputMobile" placeholder="手机号码">
+                    </div>
+                </div>
+                    <div class="form-group row">
+                    <div>
+                        <input type="password" class="form-control" id="password" name="password" placeholder="密 码">
+                    </div>
+                </div>
+
+
+            <div style="text-align: center">
+                <button type="submit" class="btn btn-primary">登 陆</button>
+            </div>
+
+        </form>
+        <br>
+         <div style="text-align: center">
+          <a href="/register">立即注册</a>
+         </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+</body>
+<script type="text/javascript">
+
+    function checkForm() {
+         if (!$("#inputMobile").val().match(/^1(3|4|5|8)[0-9]{9}$/))
+          {
+            alert("你的手机号格式错误，请检查后重新输入！");
+            return false;
+            }
+            else if (($('#password').val().length < 6) || ($('#password').val().length > 16)) {
+            alert("你的密码长度错误，请输入6-16位的字符！");
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+</script>
+</html>
