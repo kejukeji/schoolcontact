@@ -24,7 +24,7 @@
   <component name="FileEditorManager">
     <leaf>
       <file leaf-file-name="message_of_you.html" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SchoolContact/templates/message_of_you.html">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/templates/message_of_you.html">
           <provider selected="true" editor-type-id="text-editor">
             <state line="72" column="22" selection-start="2765" selection-end="2765" vertical-scroll-proportion="0.0" vertical-offset="1033" max-vertical-offset="2204">
               <folding />
@@ -33,7 +33,7 @@
         </entry>
       </file>
       <file leaf-file-name="menu.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/menu.py">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/menu.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="10" column="44" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0" vertical-offset="190" max-vertical-offset="494">
               <folding />
@@ -42,7 +42,7 @@
         </entry>
       </file>
       <file leaf-file-name="message.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/message.py">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/message.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="65" column="33" selection-start="1566" selection-end="1566" vertical-scroll-proportion="0.0" vertical-offset="734" max-vertical-offset="1349">
               <folding />
@@ -51,7 +51,7 @@
         </entry>
       </file>
       <file leaf-file-name="tools.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/tools.py">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/tools.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="114">
               <folding />
@@ -60,7 +60,7 @@
         </entry>
       </file>
       <file leaf-file-name="verify.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/verify.py">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/verify.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="7" column="27" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="456">
               <folding />
@@ -68,39 +68,28 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="__init__.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://E:/python/Lib/xml/__init__.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="0" selection-start="980" selection-end="980" vertical-scroll-proportion="0.0" vertical-offset="278" max-vertical-offset="893">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="webchat.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/webchat.py">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/webchat.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="45" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
+            <state line="48" column="45" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0" vertical-offset="912" max-vertical-offset="1026">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
       <file leaf-file-name="register_control.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SchoolContact/controls/register_control.py">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/controls/register_control.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1273">
-              <folding>
-                <element signature="e#40#104#0" expanded="true" />
-              </folding>
+            <state line="7" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="133" max-vertical-offset="1273">
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="database.py" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/SchoolContact/models/database.py">
+      <file leaf-file-name="database.py" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/models/database.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="37" selection-start="240" selection-end="240" vertical-scroll-proportion="0.2820037" vertical-offset="0" max-vertical-offset="539">
+            <state line="8" column="37" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
               <folding>
                 <element signature="e#17#53#0" expanded="true" />
               </folding>
@@ -108,8 +97,19 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="student_service.py" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/services/student_service.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="21" column="18" selection-start="656" selection-end="656" vertical-scroll-proportion="0.6827458" vertical-offset="31" max-vertical-offset="608">
+              <folding>
+                <element signature="e#39#105#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="cons_string.py" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/cons_string.py">
+        <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/cons_string.py">
           <provider selected="true" editor-type-id="text-editor">
             <state line="28" column="0" selection-start="500" selection-end="500" vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="646">
               <folding />
@@ -177,6 +177,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -205,60 +206,23 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="SchoolContact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SchoolContact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="schoolcontact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SchoolContact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="models" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SchoolContact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="schoolcontact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="SchoolContact" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controls" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
-    <property name="recentsLimit" value="5" />
     <property name="options.lastSelected" value="terminal" />
+    <property name="recentsLimit" value="5" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../activity" />
     <property name="FullScreen" value="false" />
     <property name="DefaultHtmlFileTemplate" value="Html5" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PyConsoleOptionsProvider">
     <option name="myPythonConsoleState">
@@ -496,13 +460,13 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1376" height="744" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25355273" sideWeight="0.56632656" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25355273" sideWeight="0.56632656" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.43367347" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -531,7 +495,7 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/SchoolContact/setting/wbb.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/setting/wbb.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="12" column="72" selection-start="464" selection-end="464" vertical-scroll-proportion="0.4064171" vertical-offset="0" max-vertical-offset="561" />
       </provider>
@@ -541,24 +505,17 @@
         <state line="11" column="36" selection-start="356" selection-end="356" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="323" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/templates/register.html">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/templates/register.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="33" column="18" selection-start="1333" selection-end="1333" vertical-scroll-proportion="0.0" vertical-offset="513" max-vertical-offset="2128" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/services/student_service.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/urls.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="4" selection-start="542" selection-end="542" vertical-scroll-proportion="0.0" vertical-offset="202" max-vertical-offset="570" />
+        <state line="16" column="40" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="93" max-vertical-offset="399" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/urls.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="40" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="93" max-vertical-offset="399">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/models/students.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/models/students.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="7" selection-start="210" selection-end="210" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="646">
           <folding />
@@ -572,69 +529,76 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/templates/message_of_you.html">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/templates/message_of_you.html">
       <provider selected="true" editor-type-id="text-editor">
         <state line="72" column="22" selection-start="2765" selection-end="2765" vertical-scroll-proportion="0.0" vertical-offset="1033" max-vertical-offset="2204">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/cons_string.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/cons_string.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="28" column="0" selection-start="500" selection-end="500" vertical-scroll-proportion="0.0" vertical-offset="107" max-vertical-offset="646">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/tools.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/tools.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="539">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/menu.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/menu.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="44" selection-start="281" selection-end="281" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="456">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/message.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/message.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="65" column="33" selection-start="1566" selection-end="1566" vertical-scroll-proportion="0.0" vertical-offset="734" max-vertical-offset="1349">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/verify.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/verify.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="27" selection-start="176" selection-end="176" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="456">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/restfuls/webchat.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/restfuls/webchat.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="48" column="45" selection-start="1490" selection-end="1490" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="969">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/controls/register_control.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/controls/register_control.py">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="208" selection-end="208" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1273">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/schoolcontact/models/database.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="37" selection-start="240" selection-end="240" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="380">
           <folding>
-            <element signature="e#40#104#0" expanded="true" />
+            <element signature="e#17#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/SchoolContact/models/database.py">
+    <entry file="file://$PROJECT_DIR$/schoolcontact/services/student_service.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="37" selection-start="240" selection-end="240" vertical-scroll-proportion="0.2820037" vertical-offset="0" max-vertical-offset="539">
+        <state line="21" column="18" selection-start="656" selection-end="656" vertical-scroll-proportion="0.6827458" vertical-offset="31" max-vertical-offset="608">
           <folding>
-            <element signature="e#17#53#0" expanded="true" />
+            <element signature="e#39#105#0" expanded="true" />
           </folding>
         </state>
       </provider>
