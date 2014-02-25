@@ -4,9 +4,9 @@ __author__ = 'Juingya'
 
 
 
-from schoolcontact import app
+from SchoolContact import app
 from flask.ext import restful
-from schoolcontact.controls.register_control import *
+from SchoolContact.controls.register_control import *
 from .views.all_views import *
 
 api = restful.Api(app)

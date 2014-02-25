@@ -1,6 +1,6 @@
 # coding: utf-8
 
-from schoolcontact.setting.secret import EX_DB_PASSWORD, EX_DB_USER, EX_SECRET_KEY_SERVER, EX_DB_NAME
+from SchoolContact.setting.secret import EX_DB_PASSWORD, EX_DB_USER, EX_SECRET_KEY_SERVER, EX_DB_NAME
 
 # flask模块需要的配置参数
 # ===============================================================

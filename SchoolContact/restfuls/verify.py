@@ -13,6 +13,6 @@ import string
 
 
 
-BASE_URL = "http://bilibili.kejukeji.com"
+BASE_URL = "http://contact.kejukeji.com"
 HELP = "感谢关注客聚科技平台，输入'h'获取帮助信息"
 

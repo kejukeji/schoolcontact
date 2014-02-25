@@ -4,7 +4,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import scoped_session, sessionmaker
 
-from schoolcontact.ex_var import *
+from SchoolContact.ex_var import *
 
 # echo是否显示sql语句跟Hibernate里面show_sql一样
 engine = create_engine(SQLALCHEMY_DATABASE_URI, echo=SQLALCHEMY_ECHO)

@@ -2,8 +2,8 @@
 __author__ = 'Juingya'
 
 from flask import request,render_template,flash,url_for,redirect
-from schoolcontact.models import *
-from schoolcontact.services.student_service import *
+from SchoolContact.models import *
+from SchoolContact.services.student_service import *
 import hashlib
 
 def register_action():

@@ -1,7 +1,7 @@
 __author__ = 'Juingya'
 # coding: UTF-8
-from schoolcontact.models.students import StudentsClass as Student
-from schoolcontact.models.database import *
+from SchoolContact.models.students import StudentsClass as Student
+from SchoolContact.models.database import *
 from sqlalchemy import desc
 
 

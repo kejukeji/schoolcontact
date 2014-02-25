@@ -17,5 +17,5 @@ def create_menu():
 
 
 def render_string(menu_string):
-    url = "http://bilibili.kejukeji.com/"
+    url = "http://contact.kejukeji.com/"
     return menu_string.replace("$url$", url)

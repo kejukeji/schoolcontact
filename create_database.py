@@ -1,10 +1,10 @@
 # coding: UTF-8
 
-from schoolcontact.models.database import Base, engine
-from schoolcontact.models.objects import ObjectsClass
-from schoolcontact.models.students import StudentsClass
-from schoolcontact.models.create import CreateClass
-from schoolcontact.models.interest import InterestClass
+from SchoolContact.models.database import Base, engine
+from SchoolContact.models.objects import ObjectsClass
+from SchoolContact.models.students import StudentsClass
+from SchoolContact.models.create import CreateClass
+from SchoolContact.models.interest import InterestClass
 
 
 

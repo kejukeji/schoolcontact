@@ -45,7 +45,7 @@
                   <lable>请完善以下信息</lable>
              </div>
 
-            {% if  student.stu_enter_time ==NULL %}
+            {% if  student.stu_enter_time == None %}
             <div class="form-group row">
                   <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间">
              </div>
@@ -56,7 +56,7 @@
             {% endif %}
 
 
-            {% if  student.stu_company ==NULL %}
+            {% if  student.stu_company == None %}
             <div class="form-group row">
                   <input type="text" class="form-control" id="e_time" name="company" placeholder="现公司名称">
              </div>
@@ -66,34 +66,34 @@
              </div>
              {% endif %}
 
-            {% if  student.stu_trade ==NULL %}
+            {% if  student.stu_trade == None %}
             <div class="form-group row">
                   <input type="text" class="form-control" id="e_time" name="trade" placeholder="行业类型">
              </div>
             {% else %}
              <div class="form-group row">
-                 <h5>行业： {{ student.stu_trade}}</h5>
+                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;行业： {{ student.stu_trade}}</h5>
              </div>
             {% endif %}
 
-             {% if  student.stu_position ==NULL %}
+             {% if  student.stu_position == None %}
             <div class="form-group row">
                   <input type="text" class="form-control" id="e_time" name="position" placeholder="职位">
              </div>
             {% else %}
-            <div class="form-group row">
-                 <h5>职位： {{ student.stu_position}}</h5>
+            <div class="form-group row" >
+                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职位： {{ student.stu_position}}</h5>
              </div>
 
             {% endif %}
 
-            {% if  student.stu_contact ==NULL %}
-            <div class="form-group row">
+            {% if  student.stu_contact == None %}
+            <div class="form-group row" >
                   <input type="text" class="form-control" id="e_time" name="mail" placeholder="邮箱">
              </div>
             {% else %}
               <div class="form-group row">
-                 <h5>邮箱： {{ student.stu_contact}}</h5>
+                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱： {{ student.stu_contact}}</h5>
              </div>
 
             {% endif %}
