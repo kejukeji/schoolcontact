@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>创建项目</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div>
+        <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h2>
+    </div>
+    <center>
+     <div>
+         <br>
+         &nbsp;<h4 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">创建项目</h4>
+    </div>
+        </center>
+    <br>
+    <div style="border-top: 20px;border-bottom: 20px">
+        <hr>
+    </div>
+
+    <div class="jumbotron">
+        <form class="form-horizontal" onsubmit="return checkForm()"  role="form" action="" method="POST">
+            <div class="navbar-text navbar-left">
+
+            </div>
+             {% with messages = get_flashed_messages() %}
+                  {% if messages %}
+                     {% for message in messages %}
+                 <li style="color:#ff0000">{{ message }} </li>
+                   {% endfor %}
+                  </ul>
+                 {% endif %}
+               {% endwith %}
+                <div class="form-group row">
+                    <div>
+                        <input type="text" class="form-control" id="name" name="nameofprojects" placeholder="项目名称">
+                    </div>
+                </div>
+
+                    <div class="form-group row">
+                      <div>
+                         <input type="text" class="form-control" id="des" name="description" placeholder="项目详细描述">
+                      </div>
+                    </div>
+
+                <div class="form-group row">
+                    <div>
+                        <input type="text" class="form-control" id="stime" name="stime" placeholder="开始时间">
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div>
+                        <input type="text" class="form-control" id="etime" name="etime" placeholder="结束时间">
+                    </div>
+                </div>
+
+
+               <div style="text-align: center">
+                <button type="submit" class="btn btn-primary">创建</button>
+               </div>
+
+        </form>
+        <br>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+        function  checkForm() {
+         if(($('#nameofprojects').val().length == 0))
+           {
+            alert("请填写项目名称");
+            return false;
+            }
+           else if(($('#description').val().length == 0))
+           {
+            alert("请填写项目描述，方便他人承接项目");
+            return false;
+           }
+         else if(($('#stime').val().length == 0)||($('#etime').val().length == 0))
+         {
+            alert("请填写项目开始结束时间，方便他人承接项目");
+            return false;
+         }
+         else
+          {
+            return true;
+          }
+    }
+</script>
+
+</html>
