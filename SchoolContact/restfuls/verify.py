@@ -63,7 +63,7 @@ def response_text(xml_recv, web_chat, pub_id):
             "ToUserName": FromUserName,
             "FromUserName": ToUserName,
             "CreateTime": 123,
-            "Content": '<a href=school.kejukeji.com/login>登录</a>'
+            "Content": '<a href=“school.kejukeji.com/login”>登录</a>'
     }
     return response(web_chat, reply_dict, "text")
 
