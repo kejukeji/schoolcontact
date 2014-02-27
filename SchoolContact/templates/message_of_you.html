@@ -41,9 +41,16 @@
              <div class="form-group row">
                            <h5>手机号：{{ student.stu_tel }}</h5>
              </div>
+            {% if student.stu_enter_time == None or student.stu_company==None or student.stu_trade==None or student.stu_position ==None or student.stu_contact==None %}
              <div class="form-group row">
                   <lable>请完善以下信息</lable>
              </div>
+            {% else %}
+            <div class="form-group row">
+                  <lable>详细信息</lable>
+             </div>
+            {% endif %}
+
 
             {% if  student.stu_enter_time == None %}
             <div class="form-group row">
@@ -97,11 +104,16 @@
              </div>
 
             {% endif %}
-
-
-            <div style="text-align: center">
+             {% if student.stu_enter_time == None or student.stu_company==None or student.stu_trade==None or student.stu_position ==None or student.stu_contact==None %}
+             <div style="text-align: center">
              <button type="submit" class="btn btn-primary">保存</button>
-         </div>
+            </div>
+            {% else %}
+            <div style="text-align: center">
+             <a href ="/change/{{ student.id}}">修改个人信息</a>
+            </div>
+            {% endif %}
+
         </form>
         <br>
        </div>

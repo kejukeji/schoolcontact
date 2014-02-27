@@ -2,7 +2,7 @@
 __author__ = 'Juingya'
 
 from flask import request,render_template,flash,url_for,redirect
-from SchoolContact.models import *
+from SchoolContact.models.students import StudentsClass
 from SchoolContact.services.student_service import *
 import hashlib
 
@@ -53,11 +53,38 @@ def login_in():
         return render_template('login.html')
 
 def save_message(stu_id):
+
     stu = get_stu_by_id(stu_id)
-    stu.stu_enter_time = request.form.get('e_time')
-    stu.stu_company = request.form.get('company')
-    stu.stu_trade = request.form.get('trade')
-    stu.stu_position = request.form.get('position')
-    stu.stu_contact = request.form.get('mail')
-    add(stu)
-    return redirect(url_for('show_message',stu_id = stu_id))
+    if stu.stu_enter_time == None:
+         stu.stu_enter_time = request.form.get('e_time')
+
+    if stu.stu_company ==None:
+        stu.stu_company = request.form.get('company')
+
+    if stu.stu_trade==None:
+         stu.stu_trade = request.form.get('trade')
+
+    if stu.stu_position ==None:
+        stu.stu_position = request.form.get('position')
+
+    if stu.stu_contact ==None:
+       stu.stu_contact = request.form.get('mail')
+       add(stu)
+       return redirect(url_for('show_message',stu_id = stu_id))
+
+def change(stu_id):
+    student = get_stu_by_id(stu_id)
+    return render_template('change_message.html',student=student)
+
+
+def change_message(stu_id):
+    student = get_stu_by_id(stu_id)
+    student.stu_enter_time =request.form.get('e_time')
+    student.stu_company = request.form.get('company')
+    student.stu_trade = request.form.get('trade')
+    student.stu_position =request.form.get('position')
+    student.stu_contact =request.form.get('mail')
+    add(student)
+    return redirect(url_for('show_message',stu_id=stu_id))
+
+

@@ -11,15 +11,16 @@ MENU_STRING = """
                {
                    "type":"view",
                    "name": "登陆",
-                   "url":"http://bilibili.kejukeji.com/login"
+                   "url":"http://school.kejukeji.com/login"
                },
                {
                    "type":"view",
                    "name": "注册",
-                   "url":"http://bilibili.kejukeji.com/register"
+                   "url":"http://school.kejukeji.com/register"
                }
                     ]
        }
+       ]
 }
 
 

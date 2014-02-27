@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+
+    <title>修改个人信息</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+
+<div class="container">
+    <div>
+        <h2 style="margin-bottom:5px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h2>
+        <div class="navbar-text navbar-right">
+
+         <h4 style="margin-bottom:-10px;font-family: '微软雅黑';color: deepskyblue"> {{ student.stu_name }}</h4>
+        </div>
+
+    </div>
+    <br>
+    <div style="border-top: 40px;border-bottom: 10px">
+        <hr>
+
+    </div>
+
+    <div class="jumbotron">
+        <form class="form-horizontal"  role="form" action="/change_message/{{ student.id }}" method="POST">
+            <div class="navbar-text navbar-right">
+            </div>
+
+             <div class="form-group row">
+                           <h5>手机号：{{ student.stu_tel }}</h5>
+             </div>
+
+            <div class="form-group row">
+                  <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="{{ student.stu_enter_time}}">
+             </div>
+
+            <div class="form-group row">
+                  <input type="text" class="form-control" id="company" name="company" placeholder="现公司名称" value="{{ student.stu_company}}">
+             </div>
+
+            <div class="form-group row">
+                  <input type="text" class="form-control" id="trade" name="trade" placeholder="行业类型" value="{{ student.stu_trade}}">
+             </div>
+
+            <div class="form-group row">
+                  <input type="text" class="form-control" id="position" name="position" placeholder="职位" value="{{student.stu_position}}">
+             </div>
+
+            <div class="form-group row" >
+                  <input type="text" class="form-control" id="mail" name="mail" placeholder="邮箱" value="{{student.stu_contact}}">
+             </div>
+
+             <div style="text-align: center">
+             <button type="submit" class="btn btn-primary">保存</button>
+            </div>
+
+        </form>
+        <br>
+       </div>
+ </div>
+</div>
+</body>
+</html>
