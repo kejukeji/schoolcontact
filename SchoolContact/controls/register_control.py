@@ -46,7 +46,8 @@ def login_in():
     password =  hashlib.new('md5',request.form.get('password')).hexdigest()
     if query_student(mobile,password):
         student = query_student(mobile,password)
-        return render_template('message_of_you.html',student= student)
+        return render_template('message_of_you.html',student= student,
+                               marked='update')
     else:
         flash(u'用户名或密码错误')
         return render_template('login.html')
