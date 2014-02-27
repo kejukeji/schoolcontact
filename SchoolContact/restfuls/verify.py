@@ -52,7 +52,7 @@ def response_text(xml_recv, web_chat, pub_id):
 
     if input_type in ('jia', 'gai'):
         return response_member_text(xml_recv, web_chat, pub_id, input_type)
-    if input_type in ("授权"):
+    if input_type == '授权':
         return response_oauth(xml_recv, web_chat)
 
     # 下面的句子是鹦鹉学舌，后期改过来
@@ -62,15 +62,10 @@ def response_text(xml_recv, web_chat, pub_id):
     reply_dict = {
             "ToUserName": FromUserName,
             "FromUserName": ToUserName,
-            "ArticleCount": 1,
-            "item": [{
-                "Title": '刮刮',
-                "Description": '好玩',
-                "PicUrl": BASE_URL + '/static/images/scratch_matter.jpg',
-                "Url": BASE_URL + '/scratch/home'
-            }]
+            "CreateTime": 123,
+            "Content": '<a href=school.kejukeji.com/login>登录</a>'
     }
-    return response(web_chat, reply_dict, "news")
+    return response(web_chat, reply_dict, "text")
 
 
 def response_oauth(xml_receive, web_chat):
