@@ -24,6 +24,8 @@ def register_action():
 
 def show_message(stu_id):
     student = get_stu_by_id(stu_id)
+    if student.stu_enter_time:
+        student.stu_enter_time = str(student.stu_enter_time)[0:10]
     return render_template('message_of_you.html',student = student)
 
 
