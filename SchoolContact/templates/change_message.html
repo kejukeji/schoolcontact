@@ -11,10 +11,15 @@
 
     <title>修改个人信息</title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
-
+    <link rel="stylesheet" href="/static/css/datepicker.css">
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
-
+    <script src="/static/js/bootstrap-datepicker.js"></script>
+    <script type="text/javascript">
+       $(function(){
+           $("#e_time").datepicker();
+       })
+    </script>
 </head>
 <body>
 
@@ -43,7 +48,7 @@
              </div>
 
             <div class="form-group row">
-                  <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="{{ student.stu_enter_time}}">
+                  <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="{{ student.stu_enter_time}}" readonly>
              </div>
 
             <div class="form-group row">
