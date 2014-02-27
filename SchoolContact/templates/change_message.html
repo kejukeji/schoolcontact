@@ -47,24 +47,29 @@
                            <h5>手机号：{{ student.stu_tel }}</h5>
              </div>
 
+
+
             <div class="form-group row">
-                  <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="{{ student.stu_enter_time}}" readonly>
+                  <input type="text" class="form-control" id="company" name="company" placeholder="公司名称" value="{{ student.stu_company}}">
              </div>
 
             <div class="form-group row">
-                  <input type="text" class="form-control" id="company" name="company" placeholder="现公司名称" value="{{ student.stu_company}}">
+                  <select class="form-control" name="trade">
+                      <option value="IT">IT</option>
+                      <option value="网络游戏">网络游戏</option>
+                      <option value="移动互联网">移动互联网</option>
+                  </select>
              </div>
 
             <div class="form-group row">
-                  <input type="text" class="form-control" id="trade" name="trade" placeholder="行业类型" value="{{ student.stu_trade}}">
-             </div>
-
-            <div class="form-group row">
-                  <input type="text" class="form-control" id="position" name="position" placeholder="职位" value="{{student.stu_position}}">
+                  <input type="text" class="form-control" id="position" name="position" placeholder="公司职位" value="{{student.stu_position}}">
              </div>
 
             <div class="form-group row" >
-                  <input type="text" class="form-control" id="mail" name="mail" placeholder="邮箱" value="{{student.stu_contact}}">
+                  <input type="text" class="form-control" id="mail" name="mail" placeholder="个人邮箱" value="{{student.stu_contact}}">
+             </div>
+            <div class="form-group row">
+                  <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="{{ student.stu_enter_time}}" readonly>
              </div>
 
              <div style="text-align: center">

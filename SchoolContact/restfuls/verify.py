@@ -58,7 +58,8 @@ def response_text(xml_recv, web_chat, pub_id):
     # 下面的句子是鹦鹉学舌，后期改过来
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
-    Content = '<a href="http://school.kejukeji.com/login">点击登录</a>'
+    if input_type == '登录':
+        Content = '<a href="http://school.kejukeji.com/login">点击登录</a>'
 
     reply_dict = {
             "ToUserName": FromUserName,

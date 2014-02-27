@@ -1,3 +1,4 @@
+
 <!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
@@ -23,13 +24,12 @@
         <h2 style="margin-bottom:5px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h2>
         <div class="navbar-text navbar-right">
 
-         <h4 style="margin-bottom:-10px;font-family: '微软雅黑';color: deepskyblue"> {{ student.stu_name }}</h4>
+         <h4 style="margin-bottom:-10px;font-family: '微软雅黑';color: deepskyblue">{{ student.stu_name }}</h4>
         </div>
 
     </div>
     <br>
-    <div style="border-top: 40px;border-bottom: 10px">
-        <hr>
+    <div style="border-top: 40px;border-bottom: 10px"><hr>
 
     </div>
 
@@ -38,81 +38,43 @@
             <div class="navbar-text navbar-right">
             </div>
 
+
+            {% if  student.stu_enter_time == None or student.stu_company == None or student.stu_position == None or student.stu_trade == None or student.stu_contact == None%}
              <div class="form-group row">
-                           <h5>手机号：{{ student.stu_tel }}</h5>
-             </div>
-            {% if student.stu_enter_time == None or student.stu_company==None or student.stu_trade==None or student.stu_position ==None or student.stu_contact==None %}
-             <div class="form-group row">
-                  <lable>请完善以下信息</lable>
-             </div>
-            {% else %}
-            <div class="form-group row">
-                  <lable>详细信息</lable>
+                  <lable style="font-weight:bold; color:#F90; font-size:25px;" >如有需要请完善为完善的资料</lable>
              </div>
             {% endif %}
 
+            <div class="form-group row">
 
-            {% if  student.stu_enter_time == None %}
-            <div class="form-group row">
-                  <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间">
+                  <lable style="font-weight:bold; font-size:20px;">详细资料</lable>
              </div>
-            {% else %}
-            <div class="form-group row">
-                 <h5>入学时间： {{ student.stu_enter_time  }}</h5>
+             <div style="border:1px solid #E2D8D8;">
+ <div class="form-group row">
+                           <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/phone.png"  width="30px" height="30px"/>手机号码：{{ student.stu_tel }} </h5>
              </div>
-            {% endif %}
+          <div class="form-group row">
+                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/xue.png"  width="30px" height="30px"/>入学时间：{{ student.stu_enter_time }}</h5>
+             </div>
+            <div class="form-group row">
+                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/si.png"  width="30px" height="30px"/>公司名称：{{ student.stu_company }}</h5>
+             </div>
 
-
-            {% if  student.stu_company == None %}
             <div class="form-group row">
-                  <input type="text" class="form-control" id="e_time" name="company" placeholder="现公司名称">
+                  <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;行业类型：{{ student.stu_trade }}</h5>
              </div>
-            {% else %}
-            <div class="form-group row">
-                 <h5>公司名称： {{ student.stu_company  }}</h5>
-             </div>
-             {% endif %}
-
-            {% if  student.stu_trade == None %}
-            <div class="form-group row">
-                  <input type="text" class="form-control" id="e_time" name="trade" placeholder="行业类型">
-             </div>
-            {% else %}
-             <div class="form-group row">
-                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;行业： {{ student.stu_trade}}</h5>
-             </div>
-            {% endif %}
-
-             {% if  student.stu_position == None %}
-            <div class="form-group row">
-                  <input type="text" class="form-control" id="e_time" name="position" placeholder="职位">
-             </div>
-            {% else %}
             <div class="form-group row" >
-                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;职位： {{ student.stu_position}}</h5>
-             </div>
-
-            {% endif %}
-
-            {% if  student.stu_contact == None %}
-            <div class="form-group row" >
-                  <input type="text" class="form-control" id="e_time" name="mail" placeholder="邮箱">
-             </div>
-            {% else %}
+                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;公司职位：{{ student.stu_position }}</h5>
+          </div>
               <div class="form-group row">
-                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;邮箱： {{ student.stu_contact}}</h5>
+                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;个人邮箱：{{ student.stu_contact }}</h5>
              </div>
-
-            {% endif %}
-             {% if student.stu_enter_time == None or student.stu_company==None or student.stu_trade==None or student.stu_position ==None or student.stu_contact==None %}
+ </div>
              <div style="text-align: center">
-             <button type="submit" class="btn btn-primary">保存</button>
             </div>
-            {% else %}
-            <div style="text-align: center">
-             <a href ="/change/{{ student.id}}">修改个人信息</a>
+            <div style="text-align:center; line-height:60px "  >
+             <a href ="/change/{{ student.id}}" style=" background-image:url('/static/img/bg.png'); width:180px; height:60px; display:block;  " >修改个人信息</a>
             </div>
-            {% endif %}
 
         </form>
         <br>
