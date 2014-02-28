@@ -99,7 +99,7 @@ def response_event(xml_recv, web_chat):
     Content = ''
     if (Event == 'CLICK') and (EventKey == 'login'):
         if boolean == None:
-            Content = '您还没注册<a href="' + BASE_URL + '/register?openId'+FromUserName+'">点击注册</a>'
+            Content = '您还没注册<a href="' + BASE_URL + '/register?openId='+FromUserName+'">点击注册</a>'
         else:
             Content = '请<a href="' + BASE_URL + '/show_message/'+boolean.id+'">点击名片</a>'
         reply_dict = {
