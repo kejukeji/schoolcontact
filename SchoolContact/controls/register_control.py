@@ -23,9 +23,20 @@ def register_action():
 
 
 def show_message(stu_id):
+    temp_str = '等待完善'
     student = get_stu_by_id(stu_id)
     if student.stu_enter_time:
         student.stu_enter_time = str(student.stu_enter_time)[0:10]
+    if student.stu_enter_time == None:
+        student.stu_enter_time = temp_str
+    if student.stu_company == None:
+        student.stu_company = temp_str
+    if student.stu_trade == None:
+        student.stu_trade = temp_str
+    if student.stu_position == None:
+        student.stu_position = temp_str
+    if student.stu_contact == None:
+        student.stu_contact = temp_str
     return render_template('message_of_you.html',student = student)
 
 
@@ -49,8 +60,7 @@ def login_in():
     password =  hashlib.new('md5',request.form.get('password')).hexdigest()
     if query_student(mobile,password):
         student = query_student(mobile,password)
-        return render_template('message_of_you.html',student= student,
-                               marked='update')
+        return redirect(url_for('show_message',stu_id = student.id))
     else:
         flash(u'用户名或密码错误')
         return render_template('login.html')
