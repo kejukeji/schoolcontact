@@ -50,22 +50,19 @@ menu = """
            "name": "我的",
            "sub_button": [
                {
-                   "type":"view",
+                   "type":"click",
                    "name": "我的名片",
-                   "key": "login",
-                   "url":"http://school.kejukeji.com/login"
+                   "key": "login"
                },
                {
-                   "type":"view",
+                   "type":"click",
                    "name":"修改名片",
-                   "key":"update",
-                   "url":"http://school.kejukeji.com/update"
+                   "key":"update"
                },
                {
-                   "type":"view",
+                   "type":"click",
                    "name":"修改密码",
-                   "key":"update",
-                   "url":"http://school.kejukeji.com/update"
+                   "key":"update"
                }
                     ]
        },
@@ -73,10 +70,9 @@ menu = """
            "name": "结识校友",
            "sub_button": [
                {
-                   "type":"view",
+                   "type":"click",
                    "name": "查找校友",
-                   "key": "select",
-                   "url":"http://school.kejukeji.com/select"
+                   "key": "select"
                }
                     ]
        }

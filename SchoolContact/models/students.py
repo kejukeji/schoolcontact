@@ -25,5 +25,6 @@ class StudentsClass(Base):
     stu_trade = Column(String(50),nullable=True)
     stu_position = Column(String(50),nullable=True)
     stu_contact = Column(String(50),nullable=True)
+    openid = Column(String(100), nullable=True)
 
 
