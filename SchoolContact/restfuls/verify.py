@@ -108,8 +108,18 @@ def response_event(xml_recv, web_chat):
             "CreateTime": 1,
             "Content": Content
         }
-
-        return response(web_chat, reply_dict, "text")
+    if (Event == 'CLICK') and (EventKey == 'update'):
+        if boolean == None:
+            Content = '您还没注册<a href="' + BASE_URL + '/register?openId='+FromUserName+'">点击注册</a>'
+        else:
+            Content = '请<a href="' + BASE_URL + '/change_message/'+boolean+'">点击修改名片</a>'
+        reply_dict = {
+            "ToUserName": FromUserName,
+            "FromUserName": ToUserName,
+            "CreateTime": 1,
+            "Content": Content
+        }
+    return response(web_chat, reply_dict, "text")
 
 def response_member_text(xml_recv, web_chat, pub_id, input_type):
     """如果用户输入jia或者是gai手机号码，这里进行判断"""

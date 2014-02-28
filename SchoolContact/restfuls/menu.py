@@ -62,7 +62,7 @@ menu = """
                {
                    "type":"click",
                    "name":"修改密码",
-                   "key":"update"
+                   "key":"update_password"
                }
                     ]
        },
