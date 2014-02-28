@@ -96,7 +96,7 @@ def response_event(xml_recv, web_chat):
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
     boolean = by_openId(FromUserName) # 根据openid判断是否存在
-    Content = '您还没注册<a href="' + BASE_URL + '/register?openId='+FromUserName+'">点击注册</a>'
+    Content = '您还没注册<a href="' + BASE_URL + '/register?openid='+FromUserName+'">点击注册</a>'
     if (Event == 'CLICK') and (EventKey == 'login'):
         if boolean == 'None':
             pass
