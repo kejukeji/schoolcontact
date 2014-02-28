@@ -6,6 +6,7 @@ from xml.etree import ElementTree as ET
 from .tools import parse_request
 from .webchat import WebChat
 from ..setting.wbb import BASE_URL
+from SchoolContact.services.student_service import *
 
 import datetime
 
@@ -24,7 +25,7 @@ def weixin():
         MsgType = xml_recv.find("MsgType").text
 
         if MsgType == "event":
-            return ''
+            return response_event(xml_recv, web_chat)
         if MsgType == "text":
             return response_text(xml_recv, web_chat, 1)
         if MsgType == 'voice':
@@ -89,44 +90,36 @@ def response_oauth(xml_receive, web_chat):
     return response(web_chat, reply_dict, "news")
 
 
-#def response_event(xml_recv, web_chat, pub_id):
-#    Event = xml_recv.find("Event").text
-#    EventKey = xml_recv.find("EventKey").text
-#    ToUserName = xml_recv.find("ToUserName").text
-#    FromUserName = xml_recv.find("FromUserName").text
-#
-#    if (Event == 'CLICK') and (EventKey == 'story'):
-#        reply_dict = {
-#            "ToUserName": FromUserName,
-#            "FromUserName": ToUserName,
-#            "ArticleCount": 1,
-#            "item": [{
-#                "Title": str(pub.name),
-#                "Description": str(pub.intro),
-#                "PicUrl": BASE_URL+pub.picture_url(),
-#                "Url": url(pub_id)
-#            }]
-#        }
-#
-#        return response(web_chat, reply_dict, "news")
-#
-#    if (Event == 'CLICK') and (EventKey == 'member'):
-#        old_mobile = already_bind(FromUserName, pub_id)
-#        if old_mobile != "None":
-#            message = BIND_SUCCESS
-#        else:
-#            message = NOT_BIND
-#
-#        reply_dict = {
-#            "ToUserName": FromUserName,
-#            "FromUserName": ToUserName,
-#            "Content": message.replace('MOBILE', old_mobile)
-#        }
-#        return response(web_chat, reply_dict, "text")
-#
-#    if (Event == 'CLICK') and (EventKey == 'activity'):
-#        reply_dict, reply_type = activity_reply(pub, xml_recv)
-#        return response(web_chat, reply_dict, reply_type)
+def response_event(xml_recv, web_chat):
+    Event = xml_recv.find("Event").text
+    EventKey = xml_recv.find("EventKey").text
+    ToUserName = xml_recv.find("ToUserName").text
+    FromUserName = xml_recv.find("FromUserName").text
+    boolean = by_openId(FromUserName) # 根据openid判断是否存在
+    Content = ''
+    if (Event == 'CLICK') and (EventKey == 'login'):
+        if boolean == None:
+            Content = '您还没注册<a href="' + BASE_URL + '/register?openId='+FromUserName+'">点击注册</a>'
+        else:
+            Content = '请<a href="' + BASE_URL + '/show_massage/'+boolean+'">点击名片</a>'
+        reply_dict = {
+            "ToUserName": FromUserName,
+            "FromUserName": ToUserName,
+            "CreateTime": 1,
+            "Content": Content
+        }
+    if (Event == 'CLICK') and (EventKey == 'update'):
+        if boolean == None:
+            Content = '您还没注册<a href="' + BASE_URL + '/register?openId='+FromUserName+'">点击注册</a>'
+        else:
+            Content = '请<a href="' + BASE_URL + '/change/'+boolean+'">点击修改名片</a>'
+        reply_dict = {
+            "ToUserName": FromUserName,
+            "FromUserName": ToUserName,
+            "CreateTime": 1,
+            "Content": Content
+        }
+    return response(web_chat, reply_dict, "text")
 
 def response_member_text(xml_recv, web_chat, pub_id, input_type):
     """如果用户输入jia或者是gai手机号码，这里进行判断"""
@@ -150,6 +143,12 @@ def response(web_chat, reply_dict, reply_type):
     return reply_response
 
 
+def by_openId(openId):
+    '''得到openid获取用户'''
+    boolean = get_student_by_openId(openId)
+    return boolean
+
+
 def get_type(Content):
     """返回用户输入的业务类型
     "jia" 或者 "gai" 值得是用户进行手机号码绑定与修改手机号码
@@ -164,6 +163,5 @@ def get_type(Content):
 
 
 
-BASE_URL = "http://contact.kejukeji.com"
 HELP = "感谢关注客聚科技平台，输入'h'获取帮助信息"
 

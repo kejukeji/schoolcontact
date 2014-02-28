@@ -39,7 +39,8 @@ def html_form(form):
       elif password == repassword:
           return Student(stu_tel = mobile,
                            stu_name = form.get('stu_name'),
-                           stu_password =  hashlib.new('md5', form.get('password')).hexdigest())
+                           stu_password =  hashlib.new('md5', form.get('password')).hexdigest(),
+                           openid = form.get('openId'))
       else:
           return 'error'
 
