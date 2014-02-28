@@ -96,7 +96,6 @@ def response_oauth(xml_receive, web_chat):
 #    FromUserName = xml_recv.find("FromUserName").text
 #
 #    if (Event == 'CLICK') and (EventKey == 'story'):
-#        pub = get_pub(pub_id)
 #        reply_dict = {
 #            "ToUserName": FromUserName,
 #            "FromUserName": ToUserName,
@@ -126,7 +125,6 @@ def response_oauth(xml_receive, web_chat):
 #        return response(web_chat, reply_dict, "text")
 #
 #    if (Event == 'CLICK') and (EventKey == 'activity'):
-#        pub = get_pub(pub_id)
 #        reply_dict, reply_type = activity_reply(pub, xml_recv)
 #        return response(web_chat, reply_dict, reply_type)
 

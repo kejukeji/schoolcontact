@@ -11,11 +11,13 @@ MENU_STRING = """
                {
                    "type":"view",
                    "name": "登陆",
+                   "key": "login",
                    "url":"http://school.kejukeji.com/login"
                },
                {
                    "type":"view",
                    "name": "注册",
+                   "key": "",
                    "url":"http://school.kejukeji.com/register"
                }
                     ]

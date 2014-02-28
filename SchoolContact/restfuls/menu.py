@@ -47,35 +47,41 @@ menu = """
 {
    "button": [
        {
-           "name": "校友录",
-           "sub_button": [
-               {
-                   "type":"view",
-                   "name": "登陆",
-                   "url":"http://school.kejukeji.com/login"
-               }
-                    ]
-       },
-       {
-           "name": "校友录",
+           "name": "我的",
            "sub_button": [
                {
                    "type":"view",
                    "name": "我的名片",
+                   "key": "login",
                    "url":"http://school.kejukeji.com/login"
                },
                {
                    "type":"view",
-                   "name": "搜索名片",
-                   "url":"http://school.kejukeji.com/register"
+                   "name":"修改名片",
+                   "key":"update",
+                   "url":"http://school.kejukeji.com/update"
+               },
+               {
+                   "type":"view",
+                   "name":"修改密码",
+                   "key":"update",
+                   "url":"http://school.kejukeji.com/update"
+               }
+                    ]
+       },
+       {
+           "name": "结识校友",
+           "sub_button": [
+               {
+                   "type":"view",
+                   "name": "查找校友",
+                   "key": "select",
+                   "url":"http://school.kejukeji.com/select"
                }
                     ]
        }
        ]
 }
-
-
-
 """
 
 
@@ -90,12 +96,12 @@ print request.read()
 #    createUrl = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token="
 #    getMenuUri="https://api.weixin.qq.com/cgi-bin/menu/get?access_token="
 #    def getAccessToken(self):
-#        f = urllib.request.urlopen(self.accessUrl)
+#        f = request.urlopen(self.accessUrl)
 #        accessT = f.read().decode("utf-8")
 #        jsonT = json.loads(accessT)
 #        return jsonT["access_token"]
 #    def delMenu(self, accessToken):
-#        html = urllib.request.urlopen(self.delMenuUrl + accessToken)
+#        html = request.urlopen(self.delMenuUrl + accessToken)
 #        result = json.loads(html.read().decode("utf-8"))
 #        return result["errcode"]
 #    def createMenu(self, accessToken):
@@ -144,6 +150,6 @@ print request.read()
 #
 #    accessToken = wx.getAccessToken()
 #
-#    #print(wx.delMenu(accessToken))   #删除菜单
+#    print(wx.delMenu(accessToken))   #删除菜单
 #    #print(wx.createMenu(accessToken))  #创建菜单
 #    wx.getMenu()
