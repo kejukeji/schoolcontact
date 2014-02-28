@@ -27,8 +27,8 @@ def get_student_by_openId(openId):
     '''根据openid查询用户'''
     student = Student.query.filter(Student.openid == openId).first() #
     if student:
-        return student
-    return None
+        return str(student.id)
+    return str(None)
 
 
 
