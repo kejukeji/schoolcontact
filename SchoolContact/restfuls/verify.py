@@ -112,7 +112,7 @@ def response_event(xml_recv, web_chat):
         if boolean == None:
             Content = '您还没注册<a href="' + BASE_URL + '/register?openId='+FromUserName+'">点击注册</a>'
         else:
-            Content = '请<a href="' + BASE_URL + '/change_message/'+boolean+'">点击修改名片</a>'
+            Content = '请<a href="' + BASE_URL + '/change/'+boolean+'">点击修改名片</a>'
         reply_dict = {
             "ToUserName": FromUserName,
             "FromUserName": ToUserName,
