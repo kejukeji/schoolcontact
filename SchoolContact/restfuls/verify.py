@@ -98,19 +98,19 @@ def response_event(xml_recv, web_chat):
     boolean = by_openId(FromUserName) # 根据openid判断是否存在
     Content = '您还没注册<a href="' + BASE_URL + '/register?openId='+FromUserName+'">点击注册</a>'
     if (Event == 'CLICK') and (EventKey == 'login'):
-        if boolean == None:
+        if boolean == 'None':
             pass
         else:
             Content = '请<a href="' + BASE_URL + '/show_massage/'+boolean+'">点击名片</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'update'):
-        if boolean == None:
+        if boolean == 'None':
             pass
         else:
             Content = '请<a href="' + BASE_URL + '/change/'+boolean+'">点击修改名片</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'update_password'):
-        if boolean == None:
+        if boolean == 'None':
             pass
         else:
             Content = '请<a href="' + BASE_URL + '/reset/'+boolean+'">点击修改密码</a>'
