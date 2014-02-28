@@ -82,11 +82,24 @@ def save_message(stu_id):
 
     if stu.stu_contact ==None:
        stu.stu_contact = request.form.get('mail')
-       add(stu)
-       return redirect(url_for('show_message',stu_id = stu_id))
+    update(stu)
+    return redirect(url_for('show_message',stu_id = stu_id))
 
 def change(stu_id):
     student = get_stu_by_id(stu_id)
+    temp_str = ''
+    if student.stu_enter_time:
+        student.stu_enter_time = str(student.stu_enter_time)[0:10]
+    if student.stu_enter_time == None:
+        student.stu_enter_time = temp_str
+    if student.stu_company == None:
+        student.stu_company = temp_str
+    if student.stu_trade == None:
+        student.stu_trade = temp_str
+    if student.stu_position == None:
+        student.stu_position = temp_str
+    if student.stu_contact == None:
+        student.stu_contact = temp_str
     return render_template('change_message.html',student=student)
 
 

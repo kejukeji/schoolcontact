@@ -23,6 +23,11 @@ def get_stu_by_id(stu_id):
     else:return False
 
 
+def update(Student):
+    '''修改'''
+    db.commit()
+
+
 def get_student_by_openId(openId):
     '''根据openid查询用户'''
     student = Student.query.filter(Student.openid == openId).first() #
