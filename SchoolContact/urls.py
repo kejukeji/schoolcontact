@@ -12,6 +12,7 @@ from SchoolContact.controls.select import *
 from .views.all_views import *
 from .views.reset_password_view import *
 from .restfuls.verify import weixin
+from SchoolContact.restfuls.get_access_token import get_token
 
 api = restful.Api(app)
 app.add_url_rule('/login','login',login,methods=['GET','POST'])
@@ -26,3 +27,4 @@ app.add_url_rule('/change_message/<int:stu_id>','change_message',change_message,
 app.add_url_rule('/reset/<int:stu_id>','reset_password_view',reset_password_view,methods=['GET','POST'])
 app.add_url_rule('/resetpassword/<int:stu_id>','resetpassword',reset_password,methods=['GET','POST'])
 app.add_url_rule('/select_student','student',select_student,select_student,methods=['GET','POST'])
+app.add_url_rule('/oauth', 'oauth', get_token, methods=('GET', 'POST'))
