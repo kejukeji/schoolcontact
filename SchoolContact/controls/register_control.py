@@ -31,8 +31,8 @@ def show_message(stu_id):
         student.stu_enter_time = temp_str
     if student.stu_company == None:
         student.stu_company = temp_str
-    if student.stu_trade == None:
-        student.stu_trade = temp_str
+    if student.industry == '':
+        student.industry = temp_str
     if student.stu_position == None:
         student.stu_position = temp_str
     if student.stu_contact == None:
@@ -94,8 +94,8 @@ def change(stu_id):
         student.stu_enter_time = temp_str
     if student.stu_company == None:
         student.stu_company = temp_str
-    if student.stu_trade == None:
-        student.stu_trade = temp_str
+    if student.industry == '':
+        student.industry = temp_str
     if student.stu_position == None:
         student.stu_position = temp_str
     if student.stu_contact == None:
@@ -107,7 +107,7 @@ def change_message(stu_id):
     student = get_stu_by_id(stu_id)
     student.stu_enter_time =request.form.get('e_time')
     student.stu_company = request.form.get('company')
-    student.stu_trade = request.form.get('trade')
+    student.industry_id = int(request.form.get('trade'))
     student.stu_position =request.form.get('position')
     student.stu_contact =request.form.get('mail')
     add(student)

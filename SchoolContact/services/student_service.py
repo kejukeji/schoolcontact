@@ -2,6 +2,7 @@ __author__ = 'Juingya'
 # coding: UTF-8
 from SchoolContact.models.students import StudentsClass as Student
 from SchoolContact.models.database import *
+from SchoolContact.models.industry import *
 from sqlalchemy import desc
 
 
@@ -18,6 +19,10 @@ def query_student(mobile,password):
        else:return False
 def get_stu_by_id(stu_id):
     stu = Student.query.filter(Student.id == stu_id).first()
+    industry = Industry.query.filter(Industry.id == stu.industry_id).first()
+    stu.industry = ''
+    if industry:
+        stu.industry = industry.industry_name
     if stu:
         return stu
     else:return False
