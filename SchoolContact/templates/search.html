@@ -9,7 +9,7 @@
     <meta name="format-detection" content="email=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <title>修改个人信息</title>
+    <title>查找信息</title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/static/css/datepicker.css">
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
@@ -20,6 +20,17 @@
            $("#e_time").datepicker();
        })
     </script>
+    <style>
+	.work{
+	 font-size:12px;
+	}
+	h5{ color:#F90;}
+	ul{ margin:0; padding:0; border-bottom:1px dashed #999;}
+	li{ list-style-type:none; margin:0 10px;}
+	.fl{
+		float:left;
+	}
+	</style>
 </head>
 <body>
 
@@ -43,50 +54,56 @@
             <div class="navbar-text navbar-right">
             </div>
              <div class="form-group row" style="border-top:#006 solid 10px;" >
-         <h5  style="font-size:20px; color:#FE7700; font-weight:bold;">基本信息</h5>
+         <h5  style="font-size:20px; color:#FE7700; font-weight:bold;">按条件查找</h5>
              </div>
 
-             <div class="form-group row">
-                          <input type="text" class="form-control" id="tel" name="tel" placeholder="手机号码" value="{{ student.stu_tel }}">
-             </div>
-
+             
             <div class="form-group row">
-                  <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="{{ student.stu_enter_time}}">
-             </div>
-                         <div class="form-group row" >
-                  <input type="text" class="form-control" id="mail" name="mail" placeholder="邮箱" value="{{student.stu_contact}}">
-             </div>
+  <div class="form-group col-xs-6 col-md-4">      
+              <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="{{ student.stu_enter_time}}">
+</div>
 
-             <div class="form-group row " >
-         <h5  style="font-size:20px; color:#FE7700; font-weight:bold">&nbsp;&nbsp;&nbsp;职业信息</h5>
-             </div>
+  <div class="form-group row col-xs-6 col-md-4" > 
+ <select class="form-control" name="trade">
+                      <option value="IT">IT</option>
+                      <option value="网络游戏">网络游戏</option>
+                      <option value="移动互联网">移动互联网</option>
+                  </select></div>
+                  
+  <div class="form-group row"> 
+  &nbsp;<button type="submit" class="btn btn-primary" style=" margin-bottom:12px;" >搜索</button>
+</div>
 
-            <div class="form-group row">
-                  <input type="text" class="form-control" id="company" name="company" placeholder="现公司名称" value="{{ student.stu_company}}">
-             </div>
-
-            <div class="form-group row">
-                 <select class="form-control" name="trade">
-                      <option value="1">IT</option>
-                      <option value="2">网络游戏</option>
-                      <option value="3">移动互联网</option>
-                  </select>
-
-             </div>
-
-            <div class="form-group row">
-                  <input type="text" class="form-control" id="position" name="position" placeholder="职位" value="{{student.stu_position}}">
-             </div>
-
-
-
-             <div style="text-align: center">
-             <button type="submit" class="btn btn-primary" style=" background-image:url('img/bg.png'); width:240px; height:45px; display:block; ">保存</button>
-            </div>
 
         </form>
         <br>
        </div>
+       <!--按条件查找出来的信息-->
+            <ul class="ul-group
+            ">
+            <li class="fl">
+            <img src="img/img.jpg" /></li>
+           <li> <h5>姜跃平</h5>
+                <p class="work">副总裁 | 大众点评</p>
+                </li>
+            </ul>
+            <ul class="ul-group
+            ">
+            <li class="fl">
+            <img src="img/img.jpg" /></li>
+           <li> <h5>姜跃平</h5>
+                <p class="work">副总裁 | 大众点评</p>
+                </li>
+            </ul>
+            <ul class="ul-group
+            ">
+            <li class="fl">
+            <img src="img/img.jpg" /></li>
+           <li> <h5>姜跃平</h5>
+                <p class="work">副总裁 | 大众点评</p>
+                </li>
+            </ul>
+
  </div>
 </div>
 </body>

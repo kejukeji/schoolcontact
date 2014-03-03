@@ -14,6 +14,12 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+<style>
+a:hover{
+ text-decoration:none; color:#009; font-weight:bold;
+}
+
+</style>
 
 </head>
 <body>
@@ -32,7 +38,7 @@
             <div class="navbar-text navbar-left">
 
             </div>
-        <input type="hidden" name="openId" value="{{ openid }}"/>
+
                 <div class="form-group row">
                     <div>
                         <input type="mobile" class="form-control" id="inputMobile" name="inputMobile" placeholder="请输入你的手机号码">
@@ -57,7 +63,7 @@
                 </div>
 
             <div style="text-align: center">
-                <button type="submit" class="btn btn-primary">注 册</button>                    <a href="/login">已注册 返回登陆</a>
+                <button type="submit" class="btn btn-primary" style=" background-image:url('img/bg.png'); width:240px; height:45px; display:block; margin-bottom:15px; ">注 册</button>                    <a href="/login" style=" background-image:url('img/bg2.png'); width:240px; height:45px; display:block; ">已注册 返回登陆</a>
                 {% with messages = get_flashed_messages() %}
                   {% if messages %}
                     <ul>
