@@ -24,7 +24,7 @@ import urllib2
 from urllib import urlencode
 import json
 import sys
-from .webchat import *
+from SchoolContact.restfuls.webchat import *
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
