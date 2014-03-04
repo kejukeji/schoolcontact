@@ -21,10 +21,6 @@ def query_student(mobile,password):
 def get_stu_by_id(stu_id):
     stu = Student.query.filter(Student.id == stu_id).first()
     if stu:
-        industry = Industry.query.filter(Industry.id == stu.industry_id).first()
-        stu.industry = ''
-        if industry:
-            stu.industry = industry.industry_name
         return stu
     else:
         return 'None'
@@ -44,6 +40,10 @@ def get_student_by_openId(openId):
 
 def check_student_is_none(student):
     temp_str = '等待完善'
+    industry = Industry.query.filter(Industry.id == student.industry_id).first()
+    student.industry = ''
+    if industry:
+        student.industry = industry.industry_name
     if student != 'None' or student != False:
         if student.stu_enter_time:
             student.stu_enter_time = str(student.stu_enter_time)[0:10]
