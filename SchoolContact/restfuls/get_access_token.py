@@ -15,7 +15,8 @@ def get_token():
     json_token = access_token.read() # 读取token
 
     token = json.loads(json_token)['access_token'] # 从读取到的json中通过key得到access_token值
-    open_id = request.args.get('FromUserName') # 获得用户的openId
+    # open_id = request.args.get('FromUserName') # 获得用户的openId
+    open_id = json.loads(json_token)['openid']
 
     get_user_info_url = 'https://api.weixin.qq.com/sns/userinfo?access_token='+ token +'&openid='+ open_id +'&lang=zh_CN'
 
