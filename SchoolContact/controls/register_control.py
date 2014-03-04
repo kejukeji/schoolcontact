@@ -75,6 +75,7 @@ def save_message(stu_id):
 
 def change(stu_id):
     student = get_stu_by_id(stu_id)
+    check_student_is_none(student)
     temp_str = ''
     if student.stu_enter_time:
         student.stu_enter_time = str(student.stu_enter_time)[0:10]
