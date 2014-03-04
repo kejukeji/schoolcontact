@@ -38,8 +38,7 @@ def get_student_by_openId(openId):
         return str(student.id)
     return str(None)
 
-def check_student_is_none(student):
-    temp_str = '等待完善'
+def check_student_is_none(student, temp_str):
     industry = Industry.query.filter(Industry.id == student.industry_id).first()
     student.industry = ''
     if industry:

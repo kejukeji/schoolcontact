@@ -24,7 +24,7 @@ def register_action():
 
 def show_message(stu_id):
     student = get_stu_by_id(stu_id)
-    check_student_is_none(student)
+    check_student_is_none(student,'等待完善')
     return render_template('message_of_you.html',student = student)
 
 
@@ -75,20 +75,7 @@ def save_message(stu_id):
 
 def change(stu_id):
     student = get_stu_by_id(stu_id)
-    check_student_is_none(student)
-    temp_str = ''
-    if student.stu_enter_time:
-        student.stu_enter_time = str(student.stu_enter_time)[0:10]
-    if student.stu_enter_time == None:
-        student.stu_enter_time = temp_str
-    if student.stu_company == None:
-        student.stu_company = temp_str
-    if student.industry == '':
-        student.industry = temp_str
-    if student.stu_position == None:
-        student.stu_position = temp_str
-    if student.stu_contact == None:
-        student.stu_contact = temp_str
+    check_student_is_none(student, '')
     return render_template('change_message.html',student=student)
 
 
