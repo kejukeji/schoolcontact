@@ -24,24 +24,27 @@ import urllib2
 from urllib import urlencode
 import json
 import sys
+from .webchat import *
 reload(sys)
 sys.setdefaultencoding('UTF-8')
 
-appid = 'xxxx'
-secret = '000000'
+appid = 'wxfe4205911fe92b3c'
+secret = '60ff2a6b01671146c55f3f22387a6e39'
 
-gettoken = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxd284e29c062a6ef1&secret=0ce6f47ff64fd28a808f2287fd101fba'
+webChat = WebChat('1234',appid,secret)
 
-f = urllib2.urlopen( gettoken )
+# gettoken = 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wxfe4205911fe92b3c&secret=60ff2a6b01671146c55f3f22387a6e39'
 
-
-stringjson = f.read()
-
-access_token = json.loads(stringjson)['access_token']
+#f = urllib2.urlopen( gettoken )
+#
+#
+#stringjson = f.read()
+#
+#access_token = json.loads(stringjson)['access_token']
 
 #print access_token
 
-posturl = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token
+#posturl = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + access_token
 
 menu = """
 {
@@ -79,11 +82,11 @@ menu = """
        ]
 }
 """
+webChat.create_menu(menu)
 
+#request = urllib2.urlopen(posturl, menu.encode('utf-8') )
 
-request = urllib2.urlopen(posturl, menu.encode('utf-8') )
-
-print request.read()
+#print request.read()
 #from flask import request
 #import json
 #class MenuManager:

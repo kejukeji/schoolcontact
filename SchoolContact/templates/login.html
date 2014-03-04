@@ -64,12 +64,9 @@ a:hover{
 
         </form>
         
-         <div style="text-align: center">
-         <button type="submit" class="btn btn-primary btn-lg btn-block" >立即注册</button>
-        
-        
-          <a href="/register" style=" background-image:url('img/bg2.png'); width:240px; height:45px; display:block;  ">立即注册</a>
-         </div>
+         <div style="text-align: center;margin-top: 1%;">
+         <button type="button" class="btn btn-primary btn-lg btn-block" id="oauth">微信登录</button>
+        </div>
         </div>
 
     </div>
@@ -93,6 +90,9 @@ a:hover{
             return true;
         }
     }
+    $('#oauth').bind('click', function(){
+        window.location.href = 'https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx55970915710ceae8&redirect_uri=http%3A%2F%2Fschool.kejukeji.com%2Foauth&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect'
+    })
 
 </script>
 </html>
