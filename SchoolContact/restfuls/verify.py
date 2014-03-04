@@ -13,7 +13,7 @@ import datetime
 import string
 
 def weixin():
-    web_chat = WebChat('7345')
+    web_chat = WebChat('1234')
     if request.method == "GET":
         if web_chat.validate(**parse_request(request.args, ("timestamp", "nonce", "signature"))):
             return make_response(request.args.get("echostr"))
@@ -96,7 +96,7 @@ def response_event(xml_recv, web_chat):
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
     boolean = by_openId(FromUserName) # 根据openid判断是否存在
-    Content = '您还没注册<a href="' + BASE_URL + '/register?openid='+FromUserName+'">点击注册</a>'
+    Content = '您还没绑定<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd284e29c062a6ef1&redirect_uri=http%3A%2F%2Fscratch.kejukeji.com%2Foauth_info&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">点击绑定</a>'
     if (Event == 'CLICK') and (EventKey == 'login'):
         if boolean == 'None':
             pass
