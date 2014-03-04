@@ -15,7 +15,7 @@ def get_token():
     json_token = access_token.read() # 读取token
 
     token = json.loads(json_token)['access_token'] # 从读取到的json中通过key得到access_token值
-    open_id = json.loads(json_token)['openid'] # 获得用户的openId
+    open_id = request.args.get('FromUserName') # 获得用户的openId
 
     get_user_info_url = 'https://api.weixin.qq.com/sns/userinfo?access_token='+ token +'&openid='+ open_id +'&lang=zh_CN'
 
@@ -27,7 +27,7 @@ def get_token():
     result = insert_user(nickname, open_id, avatar_img_url) # 调用service中添加用户方法
     check_student_is_none(result)
     if result != 'None':
-        return render_template('show_message.html',
+        return render_template('message_of_you.html',
                                student=result)
     else:
         return """
