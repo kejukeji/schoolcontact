@@ -20,13 +20,14 @@ def query_student(mobile,password):
        else:return False
 def get_stu_by_id(stu_id):
     stu = Student.query.filter(Student.id == stu_id).first()
-    industry = Industry.query.filter(Industry.id == stu.industry_id).first()
-    stu.industry = ''
-    if industry:
-        stu.industry = industry.industry_name
     if stu:
+        industry = Industry.query.filter(Industry.id == stu.industry_id).first()
+        stu.industry = ''
+        if industry:
+            stu.industry = industry.industry_name
         return stu
-    else:return False
+    else:
+        return 'None'
 
 
 def update(Student):
@@ -61,7 +62,7 @@ def check_student_is_none(student):
 def insert_user(nickname, openid, headimgurl):
     '''添加授权微信用户到本app数据库中'''
     password = hashlib.new('md5', '888888').hexdigest()
-    student = Student(stu_name=nickname, openid=openid, avatar_img_url=headimgurl, stu_password=password) # 得到
+    student = Student(stu_name=nickname, openid=openid, avatar_img_url=headimgurl, stu_password=password, stu_tel=18716262204) # 得到
     db.add(student)
     try:
         db.commit()

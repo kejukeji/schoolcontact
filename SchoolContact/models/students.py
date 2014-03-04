@@ -19,7 +19,7 @@ class StudentsClass(Base):
 
     id = Column(Integer, primary_key=True)
     stu_name = Column(String(50),nullable=False)
-    stu_tel = Column(String(30),nullable=False)
+    stu_tel = Column(String(30),nullable=True)
     stu_password = Column(String(50),nullable=False)
     stu_enter_time = Column(DATETIME,nullable=True)
     stu_company = Column(String(50),nullable=True)
