@@ -14,53 +14,70 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
-
+<style>
+.pull-right {
+  float: right !important;
+}
+</style>
 </head>
 <body>
+<div class="container">
+    <div>
+        <h2 style="margin-bottom:5px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h2>
+        <div class="navbar-text navbar-right">
+
+         <h4 style="margin-bottom:-10px;font-family: '微软雅黑';color: deepskyblue"> {{ student.stu_name }}</h4>
+        </div>
+
+    </div>
+    <br>
+
 
     <div style="border-top: 40px;border-bottom: 10px"><hr>
 
     </div>
 
     <div class="jumbotron">
-        <form class="form-horizontal"  role="form" action="/save_message/{{ student.id }}" method="POST">
+        <form class="form-horizontal"  role="form" action="/change/{{ student.id }}" method="POST">
             <div class="navbar-text navbar-right">
             </div>
 
 
-             <div class="form-group row" style="border-top:#006 solid 10px;">
-                  <lable style="font-weight:bold; color:#F90; font-size:20px;" >用户昵称</lable>
+             <div class="form-group row" style="border-top:#00C solid 8px;">
+                  <lable style="font-weight:bold; color:#F90; font-size:20px;" ></lable>
              </div>
+             <img src="img/img.jpg"  class="img-thumbnail pull-right">
             <div class="form-group row"  style=" font-size:14px;">
-                  <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ student.stu_position }} | {{ student.industry }}</lable>
+
+                  <lable>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{{ student.stu_position }} | {{ student.stu_company }}</lable>
              </div>
-             <div style="border:2px dotted  #999;">
+             <div >
  <div class="form-group row">
-                   <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/tel.png"  />&nbsp;手机号码：{{ student.stu_tel }} </h5>
+ <div class="form-group row">
+                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/com.png"/>&nbsp;行业类型：{{ student.industry }}</h5>
+             </div>
+                           <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/tel.png"  />&nbsp;手机号码：{{ student.stu_tel }} </h5>
              </div>
           <div class="form-group row">
-                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/sitatc/img/time.png" />&nbsp;入学时间：{{ student.stu_enter_time }}</h5>
+                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/time.png" />&nbsp;入学时间：{{ student.stu_enter_time }}</h5>
              </div>
 			  <div class="form-group row">
                  <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/mail.png"  />&nbsp;个人邮箱：{{ student.stu_contact }}</h5>
              </div>
-            <div class="form-group row">
-                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/com.png"/>&nbsp;公司名称：{{ student.stu_company }}</h5>
-             </div> </div>
-<br/>
+             </div>
 
 
 
 
-            <div style="text-align:center; line-height:44px;"  >
-             <a href ="/change/{{ student.id}}" style=" background-image:url('/static/img/bg.png'); width:240px; height:45px; display:block;  font-size:15px;  font-weight:bold ; text-decoration:none; color:#FCFCFC;
- " >修改个人信息</a>
+
+            <div style="text-align:center; line-height:44px; margin-bottom:10px;"  >
+            <button type="submit" class="btn btn-default btn-lg btn-block">修改个人信息</button>
+            
             </div>
-
-        </form>
+<button type="button" class="btn btn-primary btn-lg btn-block">关注</button>        </form>
         <br>
        </div>
  </div>
-</div>
+
 </body>
 </html>

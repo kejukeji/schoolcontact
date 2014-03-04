@@ -42,7 +42,7 @@
         <form class="form-horizontal"  role="form" action="/change_message/{{ student.id }}" method="POST">
             <div class="navbar-text navbar-right">
             </div>
-             <div class="form-group row" style="border-top:#006 solid 10px;" >
+             <div class="form-group row"  >
          <h5  style="font-size:20px; color:#FE7700; font-weight:bold;">基本信息</h5>
              </div>
 
@@ -66,12 +66,11 @@
              </div>
 
             <div class="form-group row">
-                 <select class="form-control" name="trade">
-                      <option value="1">IT</option>
-                      <option value="2">网络游戏</option>
-                      <option value="3">移动互联网</option>
-                  </select>
-
+                <select name="trade" class="form-control">
+                    <option value="1">IT</option>
+                    <option value="2">网络游戏</option>
+                    <option value="3">移动互联网</option>
+                </select>
              </div>
 
             <div class="form-group row">
@@ -81,7 +80,7 @@
 
 
              <div style="text-align: center">
-             <button type="submit" class="btn btn-primary" style=" background-image:url('img/bg.png'); width:240px; height:45px; display:block; ">保存</button>
+             <button type="submit" class="btn btn-primary btn-lg btn-block">保存</button>
             </div>
 
         </form>

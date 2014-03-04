@@ -1,5 +1,6 @@
 # coding: UTF-8
-from flask import request
+from flask import request, render_template
+from SchoolContact.services.student_service import *
 import urllib2
 from urllib import urlencode
 import json
@@ -22,3 +23,18 @@ def get_token():
     json_user_info = user_info_result.read() # 得到json结果
 
     nickname = json.loads(json_user_info)['nickname'] # 得到用户的昵称
+    avatar_img_url = json.loads(json_user_info)['headimgurl'] # 得到微信用户头像
+    result = insert_user(nickname, open_id, avatar_img_url) # 调用service中添加用户方法
+    check_student_is_none(result)
+    if result != 'None':
+        return render_template('show_message.html',
+                               student=result)
+    else:
+        return """
+        <html>
+        <head><title>Error</title></head>
+        <body>
+            <h1>Error Internal system error</h1>
+        </body>
+        </html>
+        """

@@ -23,20 +23,8 @@ def register_action():
 
 
 def show_message(stu_id):
-    temp_str = '等待完善'
     student = get_stu_by_id(stu_id)
-    if student.stu_enter_time:
-        student.stu_enter_time = str(student.stu_enter_time)[0:10]
-    if student.stu_enter_time == None:
-        student.stu_enter_time = temp_str
-    if student.stu_company == None:
-        student.stu_company = temp_str
-    if student.industry == '':
-        student.industry = temp_str
-    if student.stu_position == None:
-        student.stu_position = temp_str
-    if student.stu_contact == None:
-        student.stu_contact = temp_str
+    check_student_is_none(student)
     return render_template('message_of_you.html',student = student)
 
 
@@ -44,7 +32,7 @@ def show_message(stu_id):
 def html_form(form):
       mobile = request.form.get('inputMobile')
       password = request.form.get('password')
-      repassword = request.form.get('repassword')
+      repassword = request.form.get('password')
       if query(mobile):
           return False
       elif password == repassword:
@@ -74,7 +62,7 @@ def save_message(stu_id):
     if stu.stu_company ==None:
         stu.stu_company = request.form.get('company')
 
-    if stu.stu_trade==None:
+    if stu.industry_id ==None:
          stu.stu_trade = request.form.get('trade')
 
     if stu.stu_position ==None:
