@@ -97,7 +97,7 @@ def response_event(xml_recv, web_chat):
     FromUserName = xml_recv.find("FromUserName").text
     boolean = by_openId(FromUserName) # 根据openid判断是否存在
     # Content = '您还没绑定点击此连接进行<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx55970915710ceae8&redirect_uri=http%3A%2F%2Fschool.kejukeji.com%2Foauth&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">绑定</a>'
-    Content = '您还没绑定点击此连接进行<a href="https://school.kejukeji.com/register?openid='+FromUserName+'">绑定</a>'
+    Content = '您还没绑定点击此连接进行<a href="http://school.kejukeji.com/register?openid='+FromUserName+'">绑定</a>'
     reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'login'):
         if boolean == 'None':
