@@ -25,7 +25,7 @@ def get_token():
     nickname = json.loads(json_user_info)['nickname'] # 得到用户的昵称
     avatar_img_url = json.loads(json_user_info)['headimgurl'] # 得到微信用户头像
     result = insert_user(nickname, open_id, avatar_img_url) # 调用service中添加用户方法
-    check_student_is_none(result)
+    check_student_is_none(result, '等待完善')
     if result != 'None':
         return render_template('message_of_you.html',
                                student=result)
