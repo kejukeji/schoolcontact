@@ -64,9 +64,9 @@
 
            <div class="form-group row col-xs-6 col-md-4" >
              <select class="form-control" name="trade">
-                      <option value="IT">IT</option>
-                      <option value="网络游戏">网络游戏</option>
-                      <option value="移动互联网">移动互联网</option>
+                      <option value="1">IT</option>
+                      <option value="2">网络游戏</option>
+                      <option value="3">移动互联网</option>
              </select>
            </div>
                   
@@ -79,15 +79,34 @@
 
 
         <br>
-       </div>
-       <!--按条件查找出来的信息-->
+
+    </div>
+    {% if student_count == 0 %}
+    <div>
+
+    </div>
+    {% elif student_count == 1 %}
+    <!--按条件查找出来的信息-->
             <ul class="ul-group">
             <li class="fl">
             <img src="img/img.jpg" /></li>
-            <li> <h5>姜跃平</h5>
-                <p class="work">副总裁 | 大众点评</p>
+            <li> <h5>{{ student_selected.stu_name }}</h5>
+                <p class="work">{{ student_selected.stu_position }}| {{ student_selected.industry}}</p>
                 </li>
             </ul>
+    {% else %}
+        {% for s in student_selected %}
+           <ul class="ul-group">
+            <li class="fl">
+            <img src="img/img.jpg" /></li>
+            <li> <h5>{{ s.stu_name }}</h5>
+                <p class="work">{{ s.stu_position }}| {{ s.industry}}</p>
+                </li>
+            </ul>
+         {% endfor %}
+    {% endif %}
+
+
 
 
 </div>

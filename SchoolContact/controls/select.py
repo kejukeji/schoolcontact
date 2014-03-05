@@ -22,12 +22,9 @@ def select_student():
 
     trade =int(request.form.get('trade'))
     enter_time =request.form.get('e_time')
-    student_selected_count = db.query(StudentsClass)\
-        .join(Industry).filter(StudentsClass.stu_enter_time==enter_time and Industry.trade ==trade).count()
+    student_selected_count = StudentsClass.query.filter(StudentsClass.stu_enter_time == enter_time,StudentsClass.industry_id==trade).count()
     if student_selected_count > 1:
-        student_selected =  db.query(StudentsClass)\
-        .join(Industry).filter(StudentsClass.stu_enter_time==enter_time and Industry.trade ==trade).all()
+        student_selected =  StudentsClass.query.filter(StudentsClass.stu_enter_time == enter_time,StudentsClass.industry_id==trade).all()
     else:
-         student_selected = db.query(StudentsClass)\
-        .join(Industry).filter(StudentsClass.stu_enter_time==enter_time and Industry.trade ==trade).first()
-    return render_template('search.html',student_selected = student_selected)
+         student_selected =  StudentsClass.query.filter(StudentsClass.stu_enter_time == enter_time,StudentsClass.industry_id==trade).first()
+    return render_template('search.html',student_selected = student_selected,student_count = student_selected_count)
