@@ -56,6 +56,10 @@ def check_student_is_none(student, temp_str):
             student.stu_position = temp_str
         if student.stu_contact == None:
             student.stu_contact = temp_str
+        if student.account_qq == None:
+            student.account_qq = temp_str
+        if student.account_wechat == None:
+            student.account_wechat = temp_str
 
 
 def insert_user(nickname, openid, headimgurl):
