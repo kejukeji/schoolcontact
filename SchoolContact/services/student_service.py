@@ -41,6 +41,20 @@ def get_student_by_openId(openId):
     return str(None)
 
 
+def select_student_count(enter_time,industry_id):
+     '''根据查询条件获取学生数'''
+     student_selected_count = Student.query.filter(Student.stu_enter_time == enter_time,Student.industry_id==industry_id).count()
+     return student_selected_count
+def select_student_all(enter_time,industry_id):
+    '''查询到多个学生'''
+    student_selected = Student.query.filter(Student.stu_enter_time == enter_time,Student.industry_id==industry_id).all()
+    return student_selected
+
+def select_student_first(enter_time,industry_id):
+    '''查询到一个学生 '''
+
+    student_selected = Student.query.filter(Student.stu_enter_time == enter_time,Student.industry_id==industry_id).first()
+    return student_selected
 
 
 

@@ -1,6 +1,7 @@
 # coding: UTf-8
 from flask import request, render_template
 from SchoolContact.services.select_service import *
+from SchoolContact.services.student_service import *
 from SchoolContact.models.industry import *
 
 def to_select_page():
@@ -22,9 +23,9 @@ def select_student():
 
     trade =int(request.form.get('trade'))
     enter_time =request.form.get('e_time')
-    student_selected_count = StudentsClass.query.filter(StudentsClass.stu_enter_time == enter_time,StudentsClass.industry_id==trade).count()
+    student_selected_count = select_student_count(enter_time,trade)
     if student_selected_count > 1:
-        student_selected =  StudentsClass.query.filter(StudentsClass.stu_enter_time == enter_time,StudentsClass.industry_id==trade).all()
+        student_selected = select_student_all(enter_time,trade)
     else:
-         student_selected =  StudentsClass.query.filter(StudentsClass.stu_enter_time == enter_time,StudentsClass.industry_id==trade).first()
+         student_selected = select_student_first(enter_time,trade)
     return render_template('search.html',student_selected = student_selected,student_count = student_selected_count)
