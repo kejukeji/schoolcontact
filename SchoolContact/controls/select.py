@@ -20,8 +20,8 @@ def select_student():
     #return render_template('all_student.html',
      #                      student_all=student_all)
 
-    trade = request.form.get('trade')
-    enter_time = request.form.get('e_time')
+    trade =int(request.form.get('trade'))
+    enter_time =request.form.get('e_time')
     student_selected_count = db.query(StudentsClass)\
         .join(Industry).filter(StudentsClass.stu_enter_time==enter_time and Industry.trade ==trade).count()
     if student_selected_count > 1:
