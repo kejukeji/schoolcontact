@@ -17,7 +17,25 @@
     <script src="/static/js/bootstrap-datepicker.js"></script>
     <script type="text/javascript">
        $(function(){
-           $("#e_time").datepicker();
+           $("#e_time").datepicker()
+           var array = new Array();
+           var industry = $('#industry');
+           {% if industry_count > 1 %}
+               {% set count = 0 %}
+               {% for _industry in industry %}
+                   array[{{ count }}] = new Array('{{ _industry.id }}','{{ _industry.industry_name }}');
+                   {% set count = count + 1 %}
+               {% endfor %}
+               for (var i = 0; i < array.length; i++){
+                   industry_id = "{{ student.industry_id }}";
+                   if (array[i][0].toString() == industry_id){
+                       industry.append("<option value=" + array[i][0] + " selected>" + array[i][1] + "</option>")
+                   }else{
+                       industry.append("<option value=" + array[i][0] + ">" + array[i][1] + "</option>")
+                   }
+               }
+           {% else %}
+           {% endif %}
        })
     </script>
 </head>
@@ -25,10 +43,10 @@
 
 <div class="container">
     <div>
-        <h2 style="margin-bottom:5px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h2>
+        <h4 style="margin-bottom:5px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h4>
         <div class="navbar-text navbar-right">
 
-         <h4 style="margin-bottom:-10px;font-family: '微软雅黑';color: deepskyblue"> {{ student.stu_name }}</h4>
+         <h3 style="margin-bottom:-10px;font-family: '微软雅黑';color: deepskyblue"> {{ student.stu_name }}</h3>
         </div>
 
     </div>
@@ -47,17 +65,15 @@
              </div>
 
       <div class="form-group row">
-                  <input type="text" class="form-control" id="username" name="stu_name" placeholder="用户名" value="{{ student.stu_username}}">
+                  <input type="text" class="form-control" id="username" name="stu_name" placeholder="用户名" value="{{ student.stu_name}}">
     </div>      
 <div class="form-group row">
                   <input type="text" class="form-control" id="company" name="stu_company" placeholder="现公司名称" value="{{ student.stu_company}}">
              </div>
 
             <div class="form-group row">
-                   <select name="industry_id" class="form-control">
-                    <option value="1">IT</option>
-                    <option value="2">网络游戏</option>
-                    <option value="3">移动互联网</option>
+                   <select name="industry_id" class="form-control" id="industry">
+
                 </select>
 
              </div>

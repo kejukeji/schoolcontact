@@ -39,7 +39,7 @@ def get_student_by_openId(openId):
     return str(None)
 
 def check_student_is_none(student, temp_str):
-    industry = Industry.query.filter(Industry.id == student.industry_id).first()
+    industry = get_industry_by_industry_id(student.industry_id) # 根据student中的industry_id得到industry
     student.industry = ''
     if industry:
         student.industry = industry.industry_name
@@ -48,18 +48,20 @@ def check_student_is_none(student, temp_str):
             student.stu_enter_time = str(student.stu_enter_time)[0:10]
         if student.stu_enter_time == None:
             student.stu_enter_time = temp_str
-        if student.stu_company == None:
+        if student.stu_company == None or student.stu_company == '':
             student.stu_company = temp_str
         if student.industry == '':
             student.industry = temp_str
-        if student.stu_position == None:
+        if student.stu_position == None or student.stu_position == '':
             student.stu_position = temp_str
-        if student.stu_contact == None:
+        if student.stu_contact == None or student.stu_contact == '':
             student.stu_contact = temp_str
-        if student.account_qq == None:
+        if student.account_qq == None or student.account_qq == '':
             student.account_qq = temp_str
-        if student.account_wechat == None:
+        if student.account_wechat == None or student.account_wechat == '':
             student.account_wechat = temp_str
+        if student.stu_tel == None or student.stu_tel == '':
+            student.stu_tel = temp_str
 
 
 def insert_user(nickname, openid, headimgurl):
@@ -74,4 +76,19 @@ def insert_user(nickname, openid, headimgurl):
         return 'None'
 
 
+def get_industry_by_industry_id(industry_id):
+    '''获取student对应行业'''
+    industry = Industry.query.filter(Industry.id == industry_id).first()
+    if industry:
+        return industry
+    return None
 
+
+def get_industry():
+    '''获取行业全部'''
+    industry_count = Industry.query.filter().count()
+    if industry_count > 1:
+        industry = Industry.query.filter().all()
+    else:
+        industry = Industry.query.filter().frist()
+    return industry, industry_count

@@ -77,7 +77,11 @@ def save_message(stu_id):
 def change(stu_id):
     student = get_stu_by_id(stu_id)
     check_student_is_none(student, '')
-    return render_template('change_message.html',student=student)
+    industry, industry_count = get_industry() # 获得全部行业
+    return render_template('change_message.html',
+                           student=student,
+                           industry=industry,
+                           industry_count=industry_count)
 
 
 def change_message(stu_id):
