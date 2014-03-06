@@ -58,11 +58,11 @@
 
        <form name = "search"  class="form-horizontal"  role="form"  method="POST" action="/select_student">
             <div class="form-group row">
-             <div class="form-group col-xs-6 col-md-4">
+             <div class="form-group col-xs-5 col-md-6">
               <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="">
              </div>
 
-           <div class="form-group row col-xs-6 col-md-4" >
+           <div class="form-group row col-xs-3 col-md-6" >
              <select class="form-control" name="trade">
                       <option value="1">IT</option>
                       <option value="2">网络游戏</option>
@@ -74,16 +74,17 @@
            &nbsp;<button type="submit" class="btn btn-primary" style=" margin-bottom:12px;" >搜索</button>
          </div>
         </div>
-     </form>
-        <h5>或</h5>
+     </form><h5>或</h5>
        <form name = "search"  class="form-horizontal"  role="form"  method="POST" action="/vague_search" >
-       <div class="form-group col-xs-8 col-md-4">
+      <div class="form-group row">
+       <div class="form-group col-xs-4 col-md-11">
               <input type="text" class="form-control" id="para" name="para" placeholder="输入关键字" value="">
        </div>
 
         <div class="form-group row">
            &nbsp;<button type="submit" class="btn btn-primary" style=" margin-bottom:12px;" >搜索</button>
          </div>
+        </div>
 
 
      </form>
