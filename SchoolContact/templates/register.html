@@ -38,7 +38,7 @@ a:hover{
             <div class="navbar-text navbar-left">
 
             </div>
-
+            <input type="hidden" name="openId" value="{{ openid }}"/>
                 <div class="form-group row">
                     <div>
                         <input type="mobile" class="form-control" id="inputMobile" name="inputMobile" placeholder="请输入你的手机号码">
@@ -56,23 +56,19 @@ a:hover{
                         <input type="password" class="form-control" id="password" name="password" placeholder="请设置您的密码">
                     </div>
                 </div>
-                <div class="form-group row">
-                    <div>
-                        <input type="password" class="form-control" id="repassword" name="repassword" placeholder="请确认输入密码">
-                    </div>
-                </div>
 
             <div style="text-align: center">
-                <button type="submit" class="btn btn-primary" style=" background-image:url('img/bg.png'); width:240px; height:45px; display:block; margin-bottom:15px; ">注 册</button>                    <a href="/login" style=" background-image:url('img/bg2.png'); width:240px; height:45px; display:block; ">已注册 返回登陆</a>
-                {% with messages = get_flashed_messages() %}
-                  {% if messages %}
-                    <ul>
-                     {% for message in messages %}
-                 <li style="color:#ff0000">{{ message }} </li>
-                   {% endfor %}
-                  </ul>
-                 {% endif %}
-               {% endwith %}
+                <button type="submit" class="btn btn-primary btn-lg btn-block" >注 册</button>                   <button type="submit" class="btn btn-default btn-lg btn-block">已注册 返回登陆</button>
+{#                 #}
+{#                {% with messages = get_flashed_messages() %}#}
+{#                  {% if messages %}#}
+{#                    <ul>#}
+{#                     {% for message in messages %}#}
+{#                 <li style="color:#ff0000">{{ message }} </li>#}
+{#                   {% endfor %}#}
+{#                  </ul>#}
+{#                 {% endif %}#}
+{#               {% endwith %}#}
             </div>
                  <div style="text-align:center">
 

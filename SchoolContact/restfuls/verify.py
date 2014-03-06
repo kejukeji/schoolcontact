@@ -13,7 +13,7 @@ import datetime
 import string
 
 def weixin():
-    web_chat = WebChat('7345')
+    web_chat = WebChat('1234')
     if request.method == "GET":
         if web_chat.validate(**parse_request(request.args, ("timestamp", "nonce", "signature"))):
             return make_response(request.args.get("echostr"))
@@ -96,24 +96,26 @@ def response_event(xml_recv, web_chat):
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
     boolean = by_openId(FromUserName) # 根据openid判断是否存在
-    Content = '您还没注册<a href="' + BASE_URL + '/register?openid='+FromUserName+'">点击注册</a>'
+    # Content = '您还没绑定点击此连接进行<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx55970915710ceae8&redirect_uri=http%3A%2F%2Fschool.kejukeji.com%2Foauth&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">绑定</a>'
+    Content = '您还没绑定点击此连接进行<a href="http://school.kejukeji.com/register?openid='+FromUserName+'">绑定</a>'
+    reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'login'):
         if boolean == 'None':
             pass
         else:
-            Content = '请<a href="' + BASE_URL + '/show_massage/'+boolean+'">点击名片</a>'
+            Content = '请请点击此链接<a href="' + BASE_URL + '/show_massage/'+boolean+'">查看名片</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'update'):
         if boolean == 'None':
             pass
         else:
-            Content = '请<a href="' + BASE_URL + '/change/'+boolean+'">点击修改名片</a>'
+            Content = '请点击此链接<a href="' + BASE_URL + '/change/'+boolean+'">修改名片</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'update_password'):
         if boolean == 'None':
             pass
         else:
-            Content = '请<a href="' + BASE_URL + '/reset/'+boolean+'">点击修改密码</a>'
+            Content = '请请点击此链接<a href="' + BASE_URL + '/reset/'+boolean+'">修改密码</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'select'):
         Content = '次功能正在开发中！！'
