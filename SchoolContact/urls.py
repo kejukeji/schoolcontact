@@ -29,3 +29,4 @@ app.add_url_rule('/resetpassword/<int:stu_id>','resetpassword',reset_password,me
 app.add_url_rule('/select_student','select_student',select_student,methods=['GET','POST'])
 app.add_url_rule('/select_page','select',select,methods=['GET','POST'])
 app.add_url_rule('/oauth', 'oauth', get_token, methods=('GET', 'POST'))
+app.add_url_rule('/vague_search','vague_select',vague_select,methods=['GET','POST'])

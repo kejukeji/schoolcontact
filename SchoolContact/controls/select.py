@@ -29,3 +29,15 @@ def select_student():
     else:
          student_selected = select_student_first(enter_time,trade)
     return render_template('search.html',student_selected = student_selected,student_count = student_selected_count)
+
+
+#关键字查询 ，模糊查询
+def vague_select():
+    para = request.form.get('para')
+    student_count = vague_count(para)
+    if student_count > 1:
+        student_selected = vague_all()
+    else:
+        student_selected = vague_first(para)
+    return render_template('search.html',student_selected = select_student,student_count = student_count)
+
