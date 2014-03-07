@@ -26,8 +26,11 @@ def register_action():
 
 def show_message(stu_id):
     student = get_stu_by_id(stu_id)
+    openid = request.args.get('openid','')
     check_student_is_none(student,'等待完善')
     user_id = get_session('student_id')
+    if openid != '':
+        user_id = get_student_by_openId(openid)
     collect = request.args.get('collect','no')
     if collect == 'yes':
         insert_followers(request.form, stu_id)
