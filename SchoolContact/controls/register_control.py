@@ -30,8 +30,10 @@ def show_message(stu_id):
     openid = request.args.get('openid','')
     check_student_is_none(student,'等待完善')
     user_id = get_session('student_id')
-    if openid != '':
-        user_id = get_student_by_openId(openid)
+    if openid == 'yes':
+        return render_template('message_of_you.html',
+                               student = student,
+                               mark='')
     collect = request.args.get('collect','no')
     if collect == 'yes':
         insert_followers(request.form, stu_id)
