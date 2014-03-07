@@ -17,6 +17,7 @@ def register_action():
     elif Student:
          add(Student)
          stu_id = Student.id
+         set_session_user('student_id',stu_id)
          flash(u'注册成功！')
          return redirect(url_for("show_message", stu_id= stu_id))
     else:
