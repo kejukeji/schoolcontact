@@ -3,6 +3,10 @@ __author__ = 'Juingya'
 from SchoolContact.models.students import StudentsClass as Student
 from SchoolContact.models.database import *
 from SchoolContact.models.industry import *
+from SchoolContact.models.user_attention import *
+from SchoolContact.restfuls.tools import *
+from SchoolContact.util.session_common import *
+from sqlalchemy import or_,and_
 import hashlib
 from sqlalchemy import desc
 
@@ -92,3 +96,29 @@ def get_industry():
     else:
         industry = Industry.query.filter().frist()
     return industry, industry_count
+
+
+def get_is_concerned(stu_id, user_id):
+    '''根据stu_id得到是否呗关注'''
+    attention = Attention.query.filter(Attention.is_concerned == user_id, Attention.followers == stu_id).first()
+    if attention:
+        return True
+    return False
+
+
+def get_is_concerned_followers(stu_id):
+    '''判断两个人是否相互收藏'''
+    user_id = get_session('student_id') # 登录用户
+    attention_count = Attention.query.filter(or_(and_(Attention.followers == stu_id,Attention.is_concerned == user_id),
+                                            and_(Attention.followers == user_id,Attention.is_concerned == stu_id))).count()
+    # 如果有两条记录就说明相互收藏
+    if attention_count == 2:
+        return True
+    return False
+
+
+def insert_followers(form, stu_id):
+    '''关注'''
+    student_id = get_session('student_id')
+    attention = Attention(followers=stu_id, is_concerned=student_id)
+    add(attention)

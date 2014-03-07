@@ -14,6 +14,36 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+    <script>
+        $(function(){
+            var profile = $('#profile'); //当双方都收藏后显示，查看自己显示
+            var change_profile_btn = $('#change_person_profile'); //修改按钮，自己查看才显示
+            var followers = $('#followers'); //关注只有当查看别人才显示
+            var mark = '{{ mark }}';
+            if (mark == ''){
+                followers.hide()
+            }
+            if (mark == 'true'){
+                change_profile_btn.hide()
+                followers.html('{{ message }}')
+                followers.attr('disabled','true')
+            }
+            if (mark == 'false'){
+                profile.hide();
+                change_profile_btn.css('display','none');
+            }
+            var message = '{{ message }}';
+            if (message == '已关注'){
+                followers.html('{{ message }}');
+                followers.attr('disabled','true')
+            }else{
+                followers.html('{{ message }}');
+            }
+            followers.bind('click', function(){
+                window.location.href = '/show_massage/{{ student.id }}?collect=yes'
+            })
+        })
+    </script>
 <style>
 .pull-right {
   float: right !important;
@@ -40,7 +70,7 @@ img{ margin-bottom:3px;}
     </div>
 
     <div class="jumbotron">
-        <form class="form-horizontal"  role="form" action="/change/{{ student.id }}" method="POST">
+        <form class="form-horizontal"  role="form" action="/change/{{ student.id }}" method="POST" id="profileForm">
             <div class="navbar-text navbar-right">
             </div>
         <img src="/static/img/img.jpg"  class="img-thumbnail pull-right">
@@ -51,22 +81,25 @@ img{ margin-bottom:3px;}
              <div class="form-group row">
                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/time1.png" />&nbsp;<b>入学时间</b>：{{ student.stu_enter_time }}</h5>
              </div>
-             <div class="form-group row">
-                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/tel1.png"  />&nbsp;<b>手机号码</b>：{{ student.stu_tel }} </h5>
+            <div class="form-group row">
+                    <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/mail1.png"  />&nbsp;<b>个人邮箱</b>：{{ student.stu_contact }}</h5>
+            </div>
+            <div id="profile">
+                 <div class="form-group row">
+                     <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/tel1.png"  />&nbsp;<b>手机号码</b>：{{ student.stu_tel }} </h5>
+                 </div>
+                  <div class="form-group row">
+                     <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/qq.png"  />&nbsp;<b>个人 Q Q</b>：{{ student.account_qq }} </h5>
+                 </div>
+                  <div class="form-group row">
+                     <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/wei.png"  />&nbsp;<b>微信账号</b>：{{ student.account_wechat }} </h5>
+                 </div>
+
              </div>
-              <div class="form-group row">
-                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/qq.png"  />&nbsp;<b>个人 Q Q</b>：{{ student.account_qq }} </h5>
-             </div>
-              <div class="form-group row">
-                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/wei.png"  />&nbsp;<b>微信账号</b>：{{ student.account_wechat }} </h5>
-             </div>
-			 <div class="form-group row">
-                <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/mail1.png"  />&nbsp;<b>个人邮箱</b>：{{ student.stu_contact }}</h5>
-             </div>
-             
             <div style="text-align:center; line-height:40px; font-family:'微软雅黑'; "  >
-            <button type="submit" class="btn btn-default btn-lg btn-block " style="margin-bottom:20px;">修改个人信息</button>
-<button type="button" class="btn btn-primary btn-lg btn-block">关注</button>       
+                <input type="hidden" name="collect" value="yes"/>
+            <button type="submit" class="btn btn-default btn-lg btn-block " id="change_person_profile" style="margin-bottom:20px;">修改个人信息</button>
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="followers">关注</button>
             </div>
 
  </form>

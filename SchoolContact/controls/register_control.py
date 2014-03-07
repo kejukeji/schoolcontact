@@ -5,6 +5,7 @@ from flask import request,render_template,flash,url_for,redirect
 from SchoolContact.models.students import StudentsClass
 from SchoolContact.services.student_service import *
 from SchoolContact.restfuls.tools import *
+from SchoolContact.util.session_common import *
 import hashlib
 
 def register_action():
@@ -26,7 +27,31 @@ def register_action():
 def show_message(stu_id):
     student = get_stu_by_id(stu_id)
     check_student_is_none(student,'等待完善')
-    return render_template('message_of_you.html',student = student)
+    user_id = get_session('student_id')
+    collect = request.args.get('collect','no')
+    if collect == 'yes':
+        insert_followers(request.form, stu_id)
+    concerned = get_is_concerned(stu_id, user_id)
+    if concerned:
+        message = '已关注'
+    else:
+        message = '关注'
+    if user_id == stu_id:
+        return render_template('message_of_you.html',
+                               student = student,
+                               mark='')
+    else:
+        is_true = get_is_concerned_followers(stu_id) # 判断是否收藏
+        if is_true:
+            return render_template('message_of_you.html',
+                                   student = student,
+                                   mark='true',
+                                   message=message)
+        else:
+            return render_template('message_of_you.html',
+                               student = student,
+                               mark='false',
+                               message=message)
 
 
 
@@ -49,6 +74,7 @@ def login_in():
     password =  hashlib.new('md5',request.form.get('password')).hexdigest()
     if query_student(mobile,password):
         student = query_student(mobile,password)
+        set_session_user('student_id', student.id) # 登录后保存用户id
         return redirect(url_for('show_message',stu_id = student.id))
     else:
         flash(u'用户名或密码错误')
