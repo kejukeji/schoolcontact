@@ -118,7 +118,7 @@ def response_event(xml_recv, web_chat):
             Content = '请请点击此链接<a href="' + BASE_URL + '/reset/'+boolean+'">修改密码</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'select'):
-        Content = '次功能正在开发中！！'
+        Content = '请点击此链接<a href="'+ BASE_URL +'/select_page">结实校友</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     return response(web_chat, reply_dict, "text")
 
