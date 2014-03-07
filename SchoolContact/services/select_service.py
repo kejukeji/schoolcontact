@@ -50,19 +50,25 @@ def get_student_count(para):
 def get_industry_count(para):
     #根据行业查询
        industry = Industry.query.filter(Industry.industry_name.like('%'+para+'%')).first()
-       id = industry.id
-       student_count = Student.query.filter(Student.industry_id == id).count()
+       if industry:
+        id = industry.id
+        student_count = Student.query.filter(Student.industry_id == id).count()
+       else:
+        student_count=0
        return student_count
 
 def get_by_industry(para):
 
      industry = Industry.query.filter(Industry.industry_name.like('%'+para+'%')).first()
-     id = industry.id
-     student_count = Student.query.filter(Student.industry_id == id).count()
-     if student_count > 1:
+     if industry:
+      id = industry.id
+      student_count = Student.query.filter(Student.industry_id == id).count()
+      if student_count > 1:
          student = Student.query.filter(Student.industry_id == id).all()
-     else:
+      else:
          student = Student.query.filter(Student.industry_id == id).first()
+     else:
+         student = None
 
      return student
 

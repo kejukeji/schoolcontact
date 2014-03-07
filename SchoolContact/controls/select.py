@@ -35,9 +35,18 @@ def select_student():
 def vague_select():
     para = request.form.get('para')
     student_count = vague_count(para)
+    per_number = 5
+    '''
+    max_page =( student_count+per_number-1)/per_number
+    if current_page == None or current_page > max_page:
+       current_page =1
+    else:
+         pass
+    '''
     if student_count > 1:
         student_selected = vague_all(para)
     else:
         student_selected = vague_first(para)
-    return render_template('search.html',student_selected = student_selected,student_count = student_count)
+    return render_template('search.html',student_selected = student_selected,
+                                            student_count = student_count)
 
