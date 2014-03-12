@@ -4,11 +4,12 @@ __author__ = 'Juingya'
 from sqlalchemy import Column, Integer, String,DATETIME, ForeignKey
 from .database import Base,db
 from .industry import Industry
+from .base_class import *
 
 students_table = 'students'
 
 
-class StudentsClass(Base):
+class StudentsClass(Base, InitUpdate):
 
     """
     学生信息表
@@ -28,5 +29,12 @@ class StudentsClass(Base):
     stu_contact = Column(String(50),nullable=True)
     openid = Column(String(100), nullable=True)
     avatar_img_url = Column(String(500), nullable=True)
+    account_qq = Column(String(20), nullable=True)
+    account_wechat = Column(String(20), nullable=True)
+
+    def update(self,**kwargs):
+        '''修改'''
+        self.update_value(('stu_name','stu_tel','stu_enter_time','stu_company','industry_id','stu_position'
+                           ,'stu_contact','account_qq', 'account_wechat'), kwargs)
 
 

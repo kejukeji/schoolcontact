@@ -4,6 +4,7 @@ __author__ = 'Juingya'
 from flask import request,render_template,flash,url_for,redirect
 from SchoolContact.models.students import StudentsClass
 from SchoolContact.services.student_service import *
+from SchoolContact.restfuls.tools import *
 import hashlib
 
 def register_action():
@@ -81,12 +82,11 @@ def change(stu_id):
 
 def change_message(stu_id):
     student = get_stu_by_id(stu_id)
-    student.stu_enter_time =request.form.get('e_time')
-    student.stu_company = request.form.get('company')
-    student.industry_id = int(request.form.get('trade'))
-    student.stu_position =request.form.get('position')
-    student.stu_contact =request.form.get('mail')
-    add(student)
+    param = ('stu_name','stu_tel','stu_enter_time','stu_company','industry_id','stu_position','stu_contact','account_qq',
+    'account_wechat')
+    dic = get_from_element(request.form, param) # 得到参数dictionary
+    student.update(stu_name=dic['stu_name'], stu_tel=dic['stu_tel'], stu_enter_time=dic['stu_enter_time'],
+                   stu_company=dic['stu_company'],industry_id=dic['industry_id'],stu_position=dic['stu_position'],
+                   stu_contact=dic['stu_contact'],account_qq=dic['account_qq'],account_wechat=dic['account_wechat'])
+    update(student) # 提交事物修改
     return redirect(url_for('show_message',stu_id=stu_id))
-
-
