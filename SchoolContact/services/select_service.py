@@ -71,6 +71,10 @@ def vague_first(para):
      student_count = get_student_count(para)
      if student_count < 1:
          student_first = get_by_industry(para)
+         if student_first <1:
+             student_first = None
+         else:
+             pass
      else:
          student_first =Student.query.filter(or_(Student.stu_name.like('%'+para+'%'),Student.stu_enter_time.like (LargeBinary('%'+para+'%')),Student.stu_company.like('%'+para+'%'),Student.stu_position.like('%'+para+'%'))).first()
      return student_first
