@@ -28,7 +28,7 @@ def register_action():
 def show_message(stu_id):
     student = get_stu_by_id(stu_id)
     openid = request.args.get('openid','')
-    change = request.args.get('change')
+    change = request.form.get('change')
     from_out = request.args.get('from')
     booleans = 'false'
     if from_out == 'singlemessage':
