@@ -28,6 +28,12 @@ def register_action():
 def show_message(stu_id):
     student = get_stu_by_id(stu_id)
     openid = request.args.get('openid','')
+    change = request.args.get('change')
+    if change == 'yes':
+        change_info(student)
+        return render_template('message_of_you.html',
+                               student = student,
+                               mark='')
     check_student_is_none(student,'等待完善')
     user_id = get_session('student_id')
     if openid == 'yes':
@@ -119,6 +125,9 @@ def change(stu_id):
 
 def change_message(stu_id):
     student = get_stu_by_id(stu_id)
+
+
+def change_info(student):
     param = ('stu_name','stu_tel','stu_enter_time','stu_company','industry_id','stu_position','stu_contact','account_qq',
     'account_wechat')
     dic = get_from_element(request.form, param) # 得到参数dictionary
@@ -126,7 +135,4 @@ def change_message(stu_id):
                    stu_company=dic['stu_company'],industry_id=dic['industry_id'],stu_position=dic['stu_position'],
                    stu_contact=dic['stu_contact'],account_qq=dic['account_qq'],account_wechat=dic['account_wechat'])
     update(student) # 提交事物修改
-    check_student_is_none(student,'')
-    return render_template('message_of_you.html',
-                           student=student,
-                           mark='')
+    check_student_is_none(student,'等待完善')
