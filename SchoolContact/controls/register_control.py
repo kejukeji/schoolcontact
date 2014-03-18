@@ -125,4 +125,7 @@ def change_message(stu_id):
                    stu_company=dic['stu_company'],industry_id=dic['industry_id'],stu_position=dic['stu_position'],
                    stu_contact=dic['stu_contact'],account_qq=dic['account_qq'],account_wechat=dic['account_wechat'])
     update(student) # 提交事物修改
-    return redirect(url_for('show_message',stu_id=stu_id))
+    check_student_is_none(student,'')
+    return render_template('message_of_you.html',
+                           student=student,
+                           mark='')
