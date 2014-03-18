@@ -31,7 +31,7 @@ def show_message(stu_id):
     change = request.args.get('change')
     from_out = request.args.get('from')
     booleans = 'false'
-    if from_out:
+    if from_out == 'singlemessage':
         booleans = 'true'
     if change == 'yes':
         change_info(student)
