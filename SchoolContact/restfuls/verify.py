@@ -8,6 +8,7 @@ from .webchat import WebChat
 from ..setting.wbb import BASE_URL
 from SchoolContact.services.student_service import *
 from .weixin_info import *
+from ..util.session_common import *
 
 import datetime
 
@@ -101,7 +102,10 @@ def response_event(xml_recv, web_chat):
     if boolean == 'None':
         dic = web_chat.get_user_info(FromUserName)
         result = insert_user(dic['nickname'],FromUserName, dic['img_url'])
+        set_session_user('student_id', result.id)
         Content = '您还没绑定点击此连接进行<a href="http://school.kejukeji.com/show_massage/%s?openid=yes">绑定</a>' %(result.id)
+    else:
+        set_session_user('student_id', int(boolean))
 
     reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'login'):
