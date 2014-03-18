@@ -1,0 +1,4 @@
+# coding: UTF-8
+
+APPID = 'wxfe4205911fe92b3c'
+SECRET = '60ff2a6b01671146c55f3f22387a6e39'

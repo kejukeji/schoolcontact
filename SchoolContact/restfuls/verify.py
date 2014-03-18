@@ -7,13 +7,14 @@ from .tools import parse_request
 from .webchat import WebChat
 from ..setting.wbb import BASE_URL
 from SchoolContact.services.student_service import *
+from .weixin_info import *
 
 import datetime
 
 import string
 
 def weixin():
-    web_chat = WebChat('1234')
+    web_chat = WebChat('1234', APPID, SECRET)
     if request.method == "GET":
         if web_chat.validate(**parse_request(request.args, ("timestamp", "nonce", "signature"))):
             return make_response(request.args.get("echostr"))
@@ -96,8 +97,12 @@ def response_event(xml_recv, web_chat):
     ToUserName = xml_recv.find("ToUserName").text
     FromUserName = xml_recv.find("FromUserName").text
     boolean = by_openId(FromUserName) # 根据openid判断是否存在
-    # Content = '您还没绑定点击此连接进行<a href="https://open.weixin.qq.com/connect/oauth2/authorize?appid=wx55970915710ceae8&redirect_uri=http%3A%2F%2Fschool.kejukeji.com%2Foauth&response_type=code&scope=snsapi_userinfo&state=STATE#wechat_redirect">绑定</a>'
-    Content = '您还没绑定点击此连接进行<a href="http://school.kejukeji.com/register?openid='+FromUserName+'">绑定</a>'
+    Content = ''
+    if boolean == 'None':
+        dic = web_chat.get_user_info(FromUserName)
+        result = insert_user(dic['nickname'],FromUserName, dic['img_url'])
+        Content = '您还没绑定点击此连接进行<a href="http://school.kejukeji.com/show_massage/%s">绑定</a>' %(result.id)
+
     reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'login'):
         if boolean == 'None':

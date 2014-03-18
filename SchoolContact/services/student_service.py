@@ -71,7 +71,7 @@ def check_student_is_none(student, temp_str):
 def insert_user(nickname, openid, headimgurl):
     '''添加授权微信用户到本app数据库中'''
     password = hashlib.new('md5', '888888').hexdigest()
-    student = Student(stu_name=nickname, openid=openid, avatar_img_url=headimgurl, stu_password=password, stu_tel=18716262204) # 得到
+    student = Student(stu_name=nickname, openid=openid, avatar_img_url=headimgurl, stu_password=password) # 得到
     db.add(student)
     try:
         db.commit()

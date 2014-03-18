@@ -69,6 +69,15 @@ class WebChat(object):
         access_token = self.get_access_token()
         return "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + str(access_token)
 
+    def get_user_info(self, openid):
+        '''根据openid获取用户信息'''
+        access_token = self.get_access_token()
+        user_info_url = "https://api.weixin.qq.com/cgi-bin/user/info?access_token=%s&openid=%s&lang=zh_CN" %(access_token, openid)
+        json_string = urllib2.urlopen(user_info_url)
+        nickname = json.loads(json_string)['nickname']
+        avatar_img_url = json.loads(json_string)['headimgurl']
+        return {'nickname': nickname, 'img_url':avatar_img_url}
+
     @staticmethod
     def reply(msg_type, msg_dict):
         return msg_format(msg_type, msg_dict)
