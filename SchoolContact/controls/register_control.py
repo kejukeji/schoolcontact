@@ -31,6 +31,7 @@ def show_message(stu_id):
     check_student_is_none(student,'等待完善')
     user_id = get_session('student_id')
     if openid == 'yes':
+        set_session_user('student_id', stu_id)
         return render_template('message_of_you.html',
                                student = student,
                                mark='')
