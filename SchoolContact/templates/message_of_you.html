@@ -23,6 +23,11 @@
             if (mark == ''){
                 followers.hide()
             }
+            var booleans = '{{ booleans }}';
+            if (booleans == 'true'){
+                change_profile_btn.hide();
+                followers.hide()
+            }
             if (mark == 'true'){
                 change_profile_btn.hide()
                 followers.html('{{ message }}')

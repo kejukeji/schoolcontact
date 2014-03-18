@@ -29,18 +29,24 @@ def show_message(stu_id):
     student = get_stu_by_id(stu_id)
     openid = request.args.get('openid','')
     change = request.args.get('change')
+    form_out = request.args.get('form')
+    booleans = 'false'
+    if form_out:
+        booleans = 'true'
     if change == 'yes':
         change_info(student)
         return render_template('message_of_you.html',
                                student = student,
-                               mark='')
+                               mark='',
+                               booleans=booleans)
     check_student_is_none(student,'等待完善')
     user_id = get_session('student_id')
     if openid == 'yes':
         set_session_user('student_id', stu_id)
         return render_template('message_of_you.html',
                                student = student,
-                               mark='')
+                               mark='',
+                               booleans=booleans)
     collect = request.args.get('collect','no')
     if collect == 'yes':
         insert_followers(request.form, stu_id)
@@ -52,19 +58,22 @@ def show_message(stu_id):
     if user_id == stu_id:
         return render_template('message_of_you.html',
                                student = student,
-                               mark='')
+                               mark='',
+                               booleans=booleans)
     else:
         is_true = get_is_concerned_followers(stu_id) # 判断是否收藏
         if is_true:
             return render_template('message_of_you.html',
                                    student = student,
                                    mark='true',
-                                   message=message)
+                                   message=message,
+                                   booleans=booleans)
         else:
             return render_template('message_of_you.html',
                                student = student,
                                mark='false',
-                               message=message)
+                               message=message,
+                               booleans=booleans)
 
 
 
