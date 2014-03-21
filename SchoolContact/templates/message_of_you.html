@@ -23,6 +23,8 @@
             if (mark == ''){
                 followers.hide()
             }
+            var booleans = '{{ booleans }}';
+
             if (mark == 'true'){
                 change_profile_btn.hide()
                 followers.html('{{ message }}')
@@ -38,6 +40,10 @@
                 followers.attr('disabled','true')
             }else{
                 followers.html('{{ message }}');
+            }
+            if (booleans == 'true'){
+                change_profile_btn.hide();
+                followers.hide()
             }
             followers.bind('click', function(){
                 window.location.href = '/show_massage/{{ student.id }}?collect=yes'
