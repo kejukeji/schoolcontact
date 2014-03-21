@@ -30,103 +30,92 @@
 	.fl{
 		float:left;
 	}
+		.navbar-text{ margin:0px; padding-top:4px;}
+.jumbotron{ margin:5px; }
 	</style>
 </head>
 <body>
 
 <div class="container">
     <div>
-        <h2 style="margin-bottom:5px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h2>
-        <div class="navbar-text navbar-right">
-        <h4 style="margin-bottom:-10px;font-family: '微软雅黑';color: deepskyblue"> </h4>
-        </div>
+        <h4 style="font-family: '微软雅黑';color: deepskyblue;">专属校友录</h4>
+        
 
     </div>
-    <br>
-    <div style="border-top: 40px;border-bottom: 10px">
-        <hr>
-
-    </div>
-
+    
+       <!--按条件搜索-->
     <div class="jumbotron">
-
+        <form class="form-horizontal"  role="form" action="/change_message/{{ student.id }}" method="POST">
             <div class="navbar-text navbar-right">
             </div>
-             <div class="form-group row" style="border-top:#006 solid 10px;" >
-             <h5  style="font-size:20px; color:#FE7700; font-weight:bold;">按条件查找</h5>
+             <div class="form-group row" >
+         <h5  style="font-size:20px; color:#FE7700; font-weight:bold;">按条件查找</h5>
              </div>
+  <!--下拉-->           
+             <div class="btn-group">
+ <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="" style="width:95px;">
+</div>
 
-       <form name = "search"  class="form-horizontal"  role="form"  method="POST" action="/select_student">
-            <div class="form-group row">
-             <div class="form-group col-xs-5 col-md-6">
-              <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="">
-             </div>
+   
+                <div class="btn-group">
+  <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+    职业选择 <span class="caret"></span>
+  </button>
+  <ul class="dropdown-menu" role="menu">
+    <li><a href="#">IT.互联网</a></li>
+    <li><a href="#">金融业</a></li>
+    <li><a href="#">医疗保健</a></li>
+    <li><a href="#">旅游</a></li>
+  </ul>
+</div>
 
-           <div class="form-group row col-xs-3 col-md-6" >
-             <select class="form-control" name="trade">
-                      <option value="1">IT</option>
-                      <option value="2">网络游戏</option>
-                      <option value="3">移动互联网</option>
-             </select>
-           </div>
-                  
-         <div class="form-group row">
-           &nbsp;<button type="submit" class="btn btn-primary" style=" margin-bottom:12px;" >搜索</button>
-         </div>
-        </div>
-     </form><h5>或</h5>
-       <form name = "search"  class="form-horizontal"  role="form"  method="POST" action="/vague_search" >
-      <div class="form-group row">
-       <div class="form-group col-xs-4 col-md-11">
-              <input type="text" class="form-control" id="para" name="para" placeholder="输入关键字" value="">
-       </div>
+<div class="btn-group">
+<button type="button" class="btn btn-primary" style="width:195px;">搜 &nbsp; 索</button></div>
 
-        <div class="form-group row">
-           &nbsp;<button type="submit" class="btn btn-primary" style=" margin-bottom:12px;" >搜索</button>
-         </div>
-        </div>
+         <h6  style="font-size:15px; color:#666; font-weight:500; font-family:'黑体'">您也可以输入关键字查找</h6>
 
 
-     </form>
-
-  </div>
-
-  <div class="jumbotron">
-       <h5  style="font-size:20px; color:#FE7700; font-weight:bold;">查找结果</h5>
-    {% if student_count == 0 %}
-    <div>
-
+    <div class="input-group">
+      <input type="text" class="form-control">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">搜索</button>
+      </span>
     </div>
-    {% elif student_count == 1 %}
-    <!--按条件查找出来的信息-->
-            <ul class="ul-group">
+  
+        </form>
+        <br>
+       </div>
+       <!--按条件查找出来的信息-->   
+        <div class="jumbotron">    
+       
+                <h5  style="font-size:20px; color:#FE7700; font-weight:bold; margin-bottom:26px;">您要找的是不是TA</h5>
+
+            <ul class="ul-group
+            ">
             <li class="fl">
-            <img src="/static/img/img.jpg" /></li>
-                <a href="/show_massage/{{ student_selected.id }}">
-            <li> <h5>{{ student_selected.stu_name }}</h5>
-                <p class="work">{{ student_selected.stu_position }}| {{ student_selected.stu_company}}</p>
+            <img src="img/img.jpg" /></li>
+           <li> <h5>姜跃平</h5>
+                <p class="work">副总裁 | 大众点评</p>
                 </li>
-              </a>
             </ul>
-    {% else %}
-        {% for s in student_selected %}
-           <ul class="ul-group">
+            <ul class="ul-group
+            ">
             <li class="fl">
-            <img src="/static/img/img.jpg" /></li>
-            <a href="/show_massage/{{ s.id }}">
-            <li> <h5>{{ s.stu_name }}</h5>
-                <p class="work">{{ s.stu_position }}| {{ s.industry}}</p>
-                </li></a>
+            <img src="img/img.jpg" /></li>
+           <li> <h5>姜跃平</h5>
+                <p class="work">副总裁 | 大众点评</p>
+                </li>
             </ul>
-         {% endfor %}
-    {% endif %}
+            <ul class="ul-group
+            ">
+            <li class="fl">
+            <img src="img/img.jpg" /></li>
+           <li> <h5>姜跃平</h5>
+                <p class="work">副总裁 | 大众点评</p>
+                </li>
+            </ul>
 
-
-
-
-   </div>
- </div>
-
-
+ </div></div>
+</div>
 </body>
 </html>
