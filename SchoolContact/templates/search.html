@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+﻿<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns="http://www.w3.org/1999/html">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -25,8 +25,6 @@
 	 font-size:12px;
 	}
 	h5{ color:#F90;}
-	ul{ margin:0; padding:0; border-bottom:1px dashed #999;}
-	li{ list-style-type:none; margin:0 10px;}
 	.fl{
 		float:left;
 	}
@@ -52,41 +50,32 @@
 
             <div class="navbar-text navbar-right">
             </div>
-             <div class="form-group row" style="border-top:#006 solid 10px;" >
+             <div class="form-group row">
              <h5  style="font-size:20px; color:#FE7700; font-weight:bold;">按条件查找</h5>
              </div>
 
-       <form name = "search"  class="form-horizontal"  role="form"  method="POST" action="/select_student">
-            <div class="form-group row">
-             <div class="form-group col-xs-5 col-md-6">
-              <input type="text" class="form-control" id="e_time" name="e_time" placeholder="入学时间" value="">
-             </div>
+      <form name = "search"  class="form-horizontal"  role="form"  method="POST" action="/vague_search"  style="padding-bottom:30px;">
 
-           <div class="form-group row col-xs-3 col-md-6" >
-             <select class="form-control" name="trade">
-                      <option value="1">IT</option>
-                      <option value="2">网络游戏</option>
-                      <option value="3">移动互联网</option>
+        <div class="form-group " style="width:43%;  height:50px; float:left; margin-right:20px;">
+           {% if industry_count == 0  %}
+             {% elif industry_count == 1 %}
+              <select class="form-control" name="trade" style="width:100%;">
+                      <option value="{{ industry.id }}">{{ industry.industry_name }}</option>
              </select>
-           </div>
-                  
-         <div class="form-group row">
-           &nbsp;<button type="submit" class="btn btn-primary" style=" margin-bottom:12px;" >搜索</button>
-         </div>
+            {% else %}
+                <select class="form-control" name="trade" style="width:100%;">
+                   {% for i in industry %}
+                      <option value="{{ i.id }}">{{ i.industry_name }}</option>
+                   {% endfor %}
+                 </select>
+           {% endif %}
         </div>
-     </form><h5>或</h5>
-       <form name = "search"  class="form-horizontal"  role="form"  method="POST" action="/vague_search" >
-      <div class="form-group row">
-       <div class="form-group col-xs-4 col-md-11">
-              <input type="text" class="form-control" id="para" name="para" placeholder="输入关键字" value="">
+       <div class="form-group "  style="width:33%; height:50px; float:left; margin-right:10px;" >
+              <input type="text" class="form-control" id="para" name="para" placeholder="输入关键字" value=""   style="margin-right:10px;" >
        </div>
-
-        <div class="form-group row">
-           &nbsp;<button type="submit" class="btn btn-primary" style=" margin-bottom:12px;" >搜索</button>
+        <div class="form-group row"  style="width:23%;  height:50px; float:left; " >
+           <button type="submit" class="btn btn-primary" style="margin-left:10px; margin-bottom:13px; width:100%;" >搜索</button>
          </div>
-        </div>
-
-
      </form>
 
   </div>
@@ -99,28 +88,40 @@
     </div>
     {% elif student_count == 1 %}
     <!--按条件查找出来的信息-->
+      <div>
             <ul class="ul-group">
             <li class="fl">
-            <img src="img/img.jpg" /></li>
+
+        {% if student_selected.avatar_img_url %}
+        <img src="{{ student_selected.avatar_img_url }}" width="42px" height="39px"  class="img-thumbnail pull-right">
+        {% else %}
+            <img src="/static/img.img.jpg"  class="img-thumbnail pull-right">
+        {% endif %}
             <li> <h5>{{ student_selected.stu_name }}</h5>
                 <p class="work">{{ student_selected.stu_position }}| {{ student_selected.stu_company}}</p>
-                </li>
+            </li>
             </ul>
+      </div>
     {% else %}
         {% for s in student_selected %}
+      <div>
            <ul class="ul-group">
             <li class="fl">
-            <img src="img/img.jpg" /></li>
+            {% if student_selected.avatar_img_url %}
+           <img src="{{ student_selected.avatar_img_url }}" width="42px" height="39px"  class="img-thumbnail pull-right">
+           {% else %}
+            <img src="/static/img.img.jpg"  class="img-thumbnail pull-right">
+           {% endif %}
             <li> <h5>{{ s.stu_name }}</h5>
-                <p class="work">{{ s.stu_position }}| {{ s.industry}}</p>
+                <p class="work">{{ s.stu_position }}| {{ s.stu_company}}</p>
                 </li>
             </ul>
+       </div>
          {% endfor %}
+
     {% endif %}
+
    </div>
  </div>
-
-
-
 </body>
 </html>

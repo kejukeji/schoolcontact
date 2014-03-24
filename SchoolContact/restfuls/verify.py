@@ -109,7 +109,7 @@ def response_event(xml_recv, web_chat):
         if boolean == 'None':
             pass
         else:
-            Content = '请请点击此链接<a href="' + BASE_URL + '/show_massage/'+boolean+'?openid=yes">查看名片</a>'
+            Content = '请点击此链接<a href="' + BASE_URL + '/show_massage/'+boolean+'?openid=yes">查看名片</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'update'):
         if boolean == 'None':
@@ -121,10 +121,10 @@ def response_event(xml_recv, web_chat):
         if boolean == 'None':
             pass
         else:
-            Content = '请请点击此链接<a href="' + BASE_URL + '/reset/'+boolean+'">修改密码</a>'
+            Content = '请点击此链接<a href="' + BASE_URL + '/reset/'+boolean+'">修改密码</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'select'):
-        Content = '请点击此链接<a href="'+ BASE_URL +'/select_page">结实校友</a>'
+        Content = '请点击此链接<a href="'+ BASE_URL +'/select_page">结识校友</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     return response(web_chat, reply_dict, "text")
 

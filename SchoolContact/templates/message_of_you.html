@@ -9,7 +9,7 @@
     <meta name="format-detection" content="email=no">
     <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <title>个人信息</title>
+    <title><h3 style="font-family: '微软雅黑';color:#00F;"> {{ student.stu_name }}</h3></title>
     <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
 
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
@@ -31,7 +31,7 @@
                 followers.attr('disabled','true')
             }
             if (mark == 'false'){
-                profile.hide();
+                //profile.hide();
                 change_profile_btn.css('display','none');
             }
             var message = '{{ message }}';
