@@ -75,9 +75,9 @@ img{ margin-bottom:3px;}
             <div class="navbar-text navbar-right">
             </div>
         {% if student.avatar_img_url %}
-            <img src="{{ student.avatar_img_url }}" width="42px" height="39px"  class="img-thumbnail pull-right">
+            <img src="{{ student.avatar_img_url }}" width="42px" height="39px" id="pageImg"  class="img-thumbnail pull-right">
         {% else %}
-            <img src="/static/img.img.jpg"  class="img-thumbnail pull-right">
+            <img src="/static/img.img.jpg" id="pageImg"  class="img-thumbnail pull-right">
         {% endif %}
 
             <div class="form-group row"  style=" font-size:14px; color:#006; font-family:'黑体';"> 
