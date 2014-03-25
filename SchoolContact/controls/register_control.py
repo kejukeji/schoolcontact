@@ -29,9 +29,9 @@ def show_message(stu_id):
     student = get_stu_by_id(stu_id)
     openid = request.args.get('openid','')
     change = request.form.get('change')
-    from_out = request.args.get('isappinstalled')
+    from_out = request.args.get('from')
     booleans = 'false'
-    if from_out == '0':
+    if from_out:
         booleans = 'true'
     if change == 'yes':
         change_info(student)
