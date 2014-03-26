@@ -102,14 +102,14 @@ def response_event(xml_recv, web_chat):
     if boolean == 'None':
         dic = web_chat.get_user_info(FromUserName)
         result = insert_user(dic['nickname'],FromUserName, dic['img_url'])
-        Content = '您还没绑定点击此连接进行<a href="http://school.kejukeji.com/show_massage/%s?openid=yes">绑定</a>' %(result.id)
+        Content = '您还没绑定点击此连接进行<a href="http://school.kejukeji.com/show_message/%s?openid=yes">绑定</a>' %(result.id)
 
     reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'login'):
         if boolean == 'None':
             pass
         else:
-            Content = '请点击此链接<a href="' + BASE_URL + '/show_massage/'+boolean+'?openid=yes">查看名片</a>'
+            Content = '请点击此链接<a href="' + BASE_URL + '/show_message/'+boolean+'?openid=yes">查看名片</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
     if (Event == 'CLICK') and (EventKey == 'update'):
         if boolean == 'None':
