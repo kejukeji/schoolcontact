@@ -57,7 +57,7 @@
     </div>
 
     <div class="jumbotron">
-        <form class="form-horizontal"  role="form" action="/show_massage/{{ student.id }}" method="POST">
+        <form class="form-horizontal"  role="form" action="/show_message/{{ student.id }}" method="POST">
             <input type="hidden" name="change" value="yes"/>
             <div class="navbar-text navbar-right">
             </div>
@@ -66,39 +66,47 @@
              </div>
 
       <div class="form-group row">
-                  <input type="text" class="form-control" id="username" name="stu_name" placeholder="用户名" value="{{ student.stu_name}}">
+           用户 名： <input type="text" class="form-control" id="username" name="stu_name" placeholder="用户名" value="{{ student.stu_name}}">
     </div>      
-<div class="form-group row">
-                  <input type="text" class="form-control" id="company" name="stu_company" placeholder="现公司名称" value="{{ student.stu_company}}">
-             </div>
+     <div class="form-group row">
+           公  司：  <input type="text" class="form-control" id="company" name="stu_company" placeholder="现公司名称" value="{{ student.stu_company}}">
+      </div>
 
-            <div class="form-group row">
-                   <select name="industry_id" class="form-control" id="industry">
+             <div class="form-group " >
+           {% if industry_count == 0  %}
+             {% elif industry_count == 1 %}
+              <select class="form-control" name="industry_id" style="width:100%;">
+                      <option value="{{ industry.id }}">{{ industry.industry_name }}</option>
+             </select>
+            {% else %}
+                <select class="form-control" name="industry_id" style="width:100%;">
 
-                </select>
-
-             </div>
-
-            <div class="form-group row">
-                  <input type="text" class="form-control" id="position" name="stu_position" placeholder="职位" value="{{student.stu_position}}">
-             </div>
-<div class="form-group row">
-                  <input type="text" class="form-control" id="e_time" name="stu_enter_time" placeholder="入学时间" value="{{ student.stu_enter_time}}">
-             </div>
-             <div class="form-group row " >
-         <h5  style="font-size:20px; color:#FE7700; font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;联系方式</h5>
-             </div>
-             <div class="form-group row">
- <input type="text" class="form-control" id="tel" name="stu_tel" placeholder="手机号码" value="{{ student.stu_tel }}">
-             </div>
+                   {% for i in industry %}
+                      <option value="{{ i.id }}">{{ i.industry_name }}</option>
+                   {% endfor %}
+                 </select>
+           {% endif %}
+        </div>
+        <div class="form-group row">
+           职  位：<input type="text" class="form-control" id="position" name="stu_position" placeholder="职位" value="{{student.stu_position}}">
+        </div>
+        <div class="form-group row">
+           入学时间：<input type="text" class="form-control" id="e_time" name="stu_enter_time" placeholder="入学时间" value="{{ student.stu_enter_time}}">
+        </div>
+         <div class="form-group row " >
+             <h5  style="font-size:20px; color:#FE7700; font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;联系方式</h5>
+         </div>
+          <div class="form-group row">
+              手机号码： <input type="text" class="form-control" id="tel" name="stu_tel" placeholder="手机号码" value="{{ student.stu_tel }}">
+           </div>
              <div class="form-group row" >
-                  <input type="text" class="form-control" id="mail" name="stu_contact" placeholder="邮箱" value="{{student.stu_contact}}">
+               邮  箱：  <input type="text" class="form-control" id="mail" name="stu_contact" placeholder="邮箱" value="{{student.stu_contact}}">
              </div>
             <div class="form-group row" >
-                  <input type="text" class="form-control" id="QQ" name="account_qq" placeholder="Q Q" value="{{student.account_qq}}">
+                Q Q   ： <input type="text" class="form-control" id="QQ" name="account_qq" placeholder="Q Q" value="{{student.account_qq}}">
              </div>
              <div class="form-group row" >
-                  <input type="text" class="form-control" id="weixin" name="account_wechat" placeholder="微信号" value="{{student.account_wechat}}">
+               微信 号： <input type="text" class="form-control" id="weixin" name="account_wechat" placeholder="微信号" value="{{student.account_wechat}}">
              </div>
 
 

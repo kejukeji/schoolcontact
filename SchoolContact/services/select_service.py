@@ -43,6 +43,22 @@ def get_student_count(trade,para):
      student_count = Student.query.filter(or_(Student.stu_name.like('%'+para+'%'),Student.stu_enter_time.like(LargeBinary('%'+para+'%')),Student.stu_company.like('%'+para+'%'),Student.stu_position.like('%'+para+'%')),and_(Student.industry_id==trade)).count()
      return  student_count
 
+
+#全部行业查询到的数量
+
+def vague_with_no_trade_count(para):
+    #模糊查询
+    student_count = get_student_with_no_trade_count(para)
+    return student_count
+
+def get_student_with_no_trade_count(para):
+    #其他条件查询
+     student_count = Student.query.filter(or_(Student.stu_name.like('%'+para+'%'),Student.stu_enter_time.like(LargeBinary('%'+para+'%')),Student.stu_company.like('%'+para+'%'),Student.stu_position.like('%'+para+'%'))).count()
+     return  student_count
+
+
+
+
 #def get_industry_count(para):
 #    #根据行业查询
 #       industry = Industry.query.filter(Industry.industry_name.like('%'+para+'%')).first()
@@ -74,8 +90,31 @@ def vague_first(trade,para):
     # else:
      student_first =Student.query.filter(or_(Student.stu_name.like('%'+para+'%'),Student.stu_enter_time.like (LargeBinary('%'+para+'%')),Student.stu_company.like('%'+para+'%'),Student.stu_position.like('%'+para+'%')),and_(Student.industry_id==trade)).first()
      return student_first
-def vague_all(trade,para):
+def vague_all(trade,para,current_page,per_page):
      #查询到多条
      #student_count = get_student_count(trade,para)
-     student_all =Student.query.filter(or_(Student.stu_name.like('%'+para+'%'),Student.stu_enter_time.like (LargeBinary('%'+para+'%')),Student.stu_company.like('%'+para+'%'),Student.stu_position.like('%'+para+'%')),and_(Student.industry_id == trade)).all()
+     student_all =Student.query.filter(or_(Student.stu_name.like('%'+para+'%'),Student.stu_enter_time.like (LargeBinary('%'+para+'%')),Student.stu_company.like('%'+para+'%'),Student.stu_position.like('%'+para+'%')),and_(Student.industry_id == trade))[per_page*(current_page-1):per_page*current_page]
+
      return student_all
+
+
+#全部行业查询
+def vague_with_no_trade_first(para):
+    #查询到一个
+    # student_count = get_student_count(trade,para)
+    # if student_count < 1:
+    #   student_first = get_by_industry(trade,para)
+    #    if student_first <1:
+    #         student_first = None
+    #     else:
+    #         pass
+    # else:
+     student_first =Student.query.filter(or_(Student.stu_name.like('%'+para+'%'),Student.stu_enter_time.like (LargeBinary('%'+para+'%')),Student.stu_company.like('%'+para+'%'),Student.stu_position.like('%'+para+'%'))).first()
+     return student_first
+def vague_with_no_trade_all(para,current_page,per_page):
+     #查询到多条
+     #student_count = get_student_count(trade,para)
+     student_all =Student.query.filter(or_(Student.stu_name.like('%'+para+'%'),Student.stu_enter_time.like (LargeBinary('%'+para+'%')),Student.stu_company.like('%'+para+'%'),Student.stu_position.like('%'+para+'%')))[per_page*(current_page-1):per_page*current_page]
+
+     return student_all
+

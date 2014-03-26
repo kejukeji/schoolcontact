@@ -33,19 +33,57 @@ def to_select_page():
 
 #关键字查询 ，模糊查询
 def vague_select():
-    trade = request.form.get('trade')
-    para = request.form.get('para')
-    student_count = vague_count(trade,para)
-    if student_count > 1:
-        student_selected = vague_all(trade,para)
+
+    trade = request.args.get('trade')
+    para = request.args.get('para')
+    current_page = request.args.get('current_page')
+    page_number = request.args.get('page_type')
+    #返回全部行业的判断
+    if trade == '0':
+        student_count = vague_with_no_trade_count(para)
     else:
-        student_selected = vague_first(trade,para)
+        student_count = vague_count(trade,para)
 
 
+    if current_page == None:
+        current_page =1
+    else:
+       current_page = int(current_page)
+    if page_number == 'up':
+        current_page = int(current_page) -1
+    else:
+        current_page = int(current_page) +1
+
+    per_page = 5 #每页显示条数s
+
+    max_page =(student_count-1)/per_page + 1
+    if current_page > max_page or current_page <= 0:
+        current_page = 1
+    #beg_page = current_page
+    #end_page = current_page +10-1
+
+    if student_count > 1:
+        if trade == '0':
+           student_selected = vague_with_no_trade_all(para,current_page,per_page)
+        else:
+            student_selected  = vague_all(trade,para,current_page,per_page)
+    else:
+        if trade == '0':
+            student_selected = vague_with_no_trade_first(para)
+        else:
+            student_selected = vague_first(trade,para)
     industry_count = Industry.query.filter().count()
     if industry_count >1:
         industry = Industry.query.filter().all()
     else:
         industry = Industry.query.filter().first()
-    return render_template('search.html',student_selected = student_selected,student_count = student_count,industry=industry,industry_count=industry_count)
+    return render_template('search.html',student_selected = student_selected,
+                                            student_count = student_count,
+                                            industry=industry,
+                                            industry_count=industry_count,
+                                            trade= trade,
+                                            para = para,
+                                            current_page = current_page,
+                                            max_page= max_page
+                                            )
 
