@@ -66,36 +66,31 @@
        vertical-align:middle;
        line-height:60px;
         }
+        .jumbotron{ margin-top:0; padding-top:5px;}
+        .form-group{ margin-top:0;}
+       li img{ margin-right:15px;}
 
 	</style>
 </head>
 <body>
 
 <div class="container">
-    <div>
-        <h2 style="margin-bottom:5px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h2>
-        <div class="navbar-text navbar-right">
-        <h4 style="margin-bottom:-10px;font-family: '微软雅黑';color: deepskyblue"> </h4>
-        </div>
 
-    </div>
-    <br>
-    <div style="border-top: 40px;border-bottom: 10px">
-        <hr>
+        <h3 style="margin:8px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h3>
 
-    </div>
+
+
 
     <div class="jumbotron">
 
-            <div class="navbar-text navbar-right">
-            </div>
+
              <div class="form-group row">
              <h5  style="font-size:20px; color:#FE7700; font-weight:bold;">按条件查找</h5>
              </div>
 
-      <form name = "search"  class="form-horizontal"  role="form"  method="GET" action="/vague_search/"  style="padding-bottom:30px;">
+      <form name = "search"  class="form-horizontal"  role="form"  method="GET" action="/vague_search/"  style="padding-bottom:10px;">
 
-        <div class="form-group " style="width:43%;  height:50px; float:left; margin-right:20px;">
+        <div class="form-group " style="width:43%;  height:40px; float:left; margin-right:20px;">
            {% if industry_count == 0  %}
              {% elif industry_count == 1 %}
               <select class="form-control" name="trade" style="width:100%;">
@@ -113,7 +108,7 @@
        <div class="form-group "  style="width:33%; height:50px; float:left; margin-right:10px;" >
               <input type="text" class="form-control" id="para" name="para" placeholder="输入关键字" value=""   style="margin-right:10px;" >
        </div>
-        <div class="form-group row"  style="width:23%;  height:50px; float:left; " >
+        <div class="form-group row"  style="width:23%;  height:40px; float:left; " >
            <button type="submit" class="btn btn-primary" style="margin-left:10px; margin-bottom:13px; width:100%;" >搜索</button>
          </div>
      </form>
@@ -137,7 +132,7 @@
         {% else %}
             <img src="/static/img.img.jpg"  class="img-thumbnail pull-right">
         {% endif %}
-            <li> <h5>{{ student_selected.stu_name }}</h5>
+           <li > <h5>{{ student_selected.stu_name }}</h5>
                 <p class="work">{{ student_selected.stu_position }}| {{ student_selected.stu_company}}</p>
             </li>
             </a>
@@ -165,7 +160,7 @@
        </div>
          {% endfor %}
       <center>
-       <div class="jumbotron m" >
+       <div class="jumbotron" >
            <nowrap>
            <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page=1"  title="首页">1</a>
            <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{ current_page }}&page_type=up"  title="上一页">《</a>

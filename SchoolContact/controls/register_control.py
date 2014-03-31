@@ -39,7 +39,7 @@ def show_message(stu_id):
                                student = student,
                                mark='',
                                booleans=booleans)
-    #check_student_is_none(student,'等待完善')
+    check_student_is_none(student,'等待完善')
     user_id = get_session('student_id')
     if openid == 'yes':
         set_session_user('student_id', stu_id)
@@ -124,7 +124,7 @@ def save_message(stu_id):
 
 def change(stu_id):
     student = get_stu_by_id(stu_id)
-    #check_student_is_none(student, '')
+    check_student_is_none(student, '')
     industry, industry_count = get_industry() # 获得全部行业
     return render_template('change_message.html',
                            student=student,
@@ -144,4 +144,4 @@ def change_info(student):
                    stu_company=dic['stu_company'],industry_id=dic['industry_id'],stu_position=dic['stu_position'],
                    stu_contact=dic['stu_contact'],account_qq=dic['account_qq'],account_wechat=dic['account_wechat'])
     update(student) # 提交事物修改
-    #check_student_is_none(student,'等待完善')
+    check_student_is_none(student,'等待完善')
