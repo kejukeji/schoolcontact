@@ -18,9 +18,22 @@
     <script type="text/javascript">
        $(function(){
            $("#e_time").datepicker();
+           var aElement = $(".m a")
+               for (var i = 0; i < aElement.length; i++){
+                    aElement.get(i).className = 'mark_none'
+               }
+           var mark = '{{ mark }}'
+           if (mark == 'mark'){
+                var aElement = $(".m a")
+               for (var i = 0; i < aElement.length; i++){
+                    aElement.get(i).className = 'mark_show'
+               }
+           }
+
        })
     </script>
     <style>
+
 	.work{
 	 font-size:12px;
 	}
@@ -29,6 +42,31 @@
 		float:left;
 	}
 	li{ list-style-type:none;}
+        .mark_none{
+            display: none;
+        }
+        .mark_show{
+            display: inline
+        }
+       #center{
+        MARGIN-RIGHT: auto;
+       MARGIN-LEFT: auto;
+       height:60px;
+
+       width:400px;
+       vertical-align:middle;
+       line-height:60px;
+        }
+        #center1{
+        MARGIN-RIGHT: auto;
+       MARGIN-LEFT: auto;
+       height:60px;
+
+       width:400px;
+       vertical-align:middle;
+       line-height:60px;
+        }
+
 	</style>
 </head>
 <body>
@@ -90,10 +128,10 @@
     </div>
     {% elif student_count == 1 %}
     <!--按条件查找出来的信息-->
-      <div>
+      <div id ="center1">
             <ul class="ul-group">
             <li class="fl">
-
+        <a href="/show_message/{{student_selected.id}}">
         {% if student_selected.avatar_img_url %}
         <img src="{{ student_selected.avatar_img_url }}" width="50px" height="60px"  class="img-thumbnail pull-right">
         {% else %}
@@ -102,11 +140,15 @@
             <li> <h5>{{ student_selected.stu_name }}</h5>
                 <p class="work">{{ student_selected.stu_position }}| {{ student_selected.stu_company}}</p>
             </li>
+            </a>
             </ul>
+
       </div>
     {% else %}
         {% for s in student_selected %}
-      <div>
+      <div id ="center">
+
+          <a href="/show_message/{{s.id}}">
            <ul class="ul-group">
             <li class="fl">
             {% if s.avatar_img_url %}
@@ -119,16 +161,19 @@
                 <p class="work">{{ s.stu_position }}| {{ s.stu_company}}</p>
             </li>
             </ul>
+            </a>
        </div>
          {% endfor %}
       <center>
-       <div class="jumbotron" >
-           <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page=1" title="首页">1</a>
-           <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{ current_page }}&page_type=up" title="上一页">《</a>
+       <div class="jumbotron m" >
+           <nowrap>
+           <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page=1"  title="首页">1</a>
+           <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{ current_page }}&page_type=up"  title="上一页">《</a>
            <!--<a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{current_page}}" title ="当前页">第{{current_page}}页</a>-->
 
-           <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{current_page}}&page_type=next" title="下一页 ">》</a>
-           <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{max_page}}" title ="最后一页">{{max_page}}</a>
+           <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{current_page}}&page_type=next"   title="下一页 ">》</a>
+           <a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{max_page}}"   title ="最后一页">{{max_page}}</a>
+           </nowrap>
        </div>
        </center>
 

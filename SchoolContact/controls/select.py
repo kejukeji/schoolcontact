@@ -84,6 +84,7 @@ def vague_select():
                                             trade= trade,
                                             para = para,
                                             current_page = current_page,
-                                            max_page= max_page
+                                            max_page= max_page,
+                                            mark='mark'
                                             )
 
