@@ -65,18 +65,28 @@ def vague_select():
     if student_count > 1:
         if trade == '0':
            student_selected = vague_with_no_trade_all(para,current_page,per_page)
+           for s in student_selected:
+               check_student_is_none(s,'等待完善')
+               continue
         else:
             student_selected  = vague_all(trade,para,current_page,per_page)
+            for s in student_selected:
+               check_student_is_none(s,'等待完善')
+               continue
     else:
         if trade == '0':
             student_selected = vague_with_no_trade_first(para)
+            check_student_is_none(student_selected,'等待完善')
         else:
             student_selected = vague_first(trade,para)
+            check_student_is_none(student_selected,'等待完善')
     industry_count = Industry.query.filter().count()
-    if industry_count >1:
+    if industry_count > 1:
         industry = Industry.query.filter().all()
     else:
         industry = Industry.query.filter().first()
+
+
     return render_template('search.html',student_selected = student_selected,
                                             student_count = student_count,
                                             industry=industry,
