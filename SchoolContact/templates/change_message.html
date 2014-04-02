@@ -39,22 +39,22 @@
        })
     </script>
 </head>
+<style>
+    .form-group{ margin:0; padding:0;  font-size:15px; font-family:‘黑体’;}
+</style>
 <body>
 
 <div class="container">
     <div>
-        <h4 style="margin-bottom:5px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h4>
+        <h4 style="margin-bottom:0; font-family: '微软雅黑';color: deepskyblue">专属校友录</h4>
         <div class="navbar-text navbar-right">
 
-         <h3 style="margin-bottom:-10px;font-family: '微软雅黑';color: deepskyblue"> {{ student.stu_name }}</h3>
+         <h3 style="font-family: '微软雅黑';color: deepskyblue"> {{ student.stu_name }}</h3>
         </div>
 
     </div>
-    <br>
-    <div style="border-top: 40px;border-bottom: 10px">
-        <hr>
+    <br><br><br><br>
 
-    </div>
 
     <div class="jumbotron">
         <form class="form-horizontal"  role="form" action="/show_message/{{ student.id }}" method="POST">
@@ -73,7 +73,7 @@
       </div>
 
              <div class="form-group " >
-           {% if industry_count == 0  %}
+                       行 业：      {% if industry_count == 0  %}
              {% elif industry_count == 1 %}
               <select class="form-control" name="industry_id" style="width:100%;">
                       <option value="{{ industry.id }}">{{ industry.industry_name }}</option>
@@ -94,7 +94,7 @@
            入学时间：<input type="text" class="form-control" id="e_time" name="stu_enter_time" placeholder="入学时间" value="{{ student.stu_enter_time}}">
         </div>
          <div class="form-group row " >
-            <h5  style="font-size:20px; color:#FE7700; font-weight:bold">&nbsp;&nbsp;&nbsp;&nbsp;联系方式</h5>
+            <h5  style="font-size:20px; color:#FE7700; font-weight:bold">&nbsp;&nbsp;联系方式</h5>
          </div>
           <div class="form-group row">
               手机号码： <input type="text" class="form-control" id="tel" name="stu_tel" placeholder="手机号码" value="{{ student.stu_tel }}">
@@ -108,7 +108,7 @@
              <div class="form-group row" >
                微信 号： <input type="text" class="form-control" id="weixin" name="account_wechat" placeholder="微信号" value="{{student.account_wechat}}">
              </div>
-             <div style="text-align: center">
+             <div style="text-align: center; margin-top:15px;">
              <button type="submit" class="btn btn-primary btn-lg btn-block">保存</button>
             </div>
 

@@ -49,15 +49,18 @@
 .pull-right {
   float: right !important;
 }
-    div#first { float: left;}
-    div#second { float: left;}
-    div#third{ display:inline;}
-    div#fourth{ display:inline;}
+    #first{margin:auto; text-align:center;}
+     #second{margin:auto;text-align:center;}
+     #third{margin:auto;text-align:center;}
+     #fourth{margin:auto;text-align:center;}
+
+
 b{ font-size:14px; color:#039; font-weight:100; font-family:'黑体';}
 img{ margin-bottom:3px;}
 .navbar-text{ margin:0px; padding-top:4px;}
     .form-group{ margin:0;}
     .clear{ clear:both;}
+
 </style>
 </head>
 <body>
@@ -75,41 +78,54 @@ img{ margin-bottom:3px;}
         <form class="form-horizontal"  role="form" action="/change/{{ student.id }}" method="POST" id="profileForm">
             <div class="navbar-text navbar-right">
             </div>
+
         {% if student.avatar_img_url %}
-            <img src="{{ student.avatar_img_url }}" width="100px" height="100px" id="pageImg"  class="img-thumbnail pull-right">
+             <center>
+            <img src="{{ student.avatar_img_url }}" width="100px" height="100px" id="pageImg"  class="img-circle ">
+               </center>
         {% else %}
-            <img src="/static/img.img.jpg" id="pageImg"  class="img-thumbnail pull-right">
+                <center>
+            <img src="/static/img.img.jpg" id="pageImg"  class="img-circle ">
+                  </center>
         {% endif %}
 
-            <!--  职位公司信息-->
+
+             <!--  职位公司信息-->
             {% if student.stu_company ==None %}
-            <div id = "first" class="form-group row"  style=" font-size:20px; color:#006; font-family:'黑体';" >
+            <div id="first" class="form-group row"  style=" font-size:18px; color:#006; font-family:'黑体';">
             <lable>&nbsp;&nbsp;暂无信息</lable>
              </div>
             {% else %}
-            <div id ="second" class="form-group row"  style=" font-size:20px; color:#006; font-family:'黑体';">
+            <div id="second" class="form-group row"  style=" font-size:18px; color:#006; font-family:'黑体';" >
              <lable>&nbsp;&nbsp;{{ student.stu_company }}</lable>
              </div>
             {% endif %}
 
             {% if student.stu_position ==None %}
-            <div id = "third" class="form-group row"  style=" font-size:20px; color:#006; font-family:'黑体'; width:200px;">
+            <div id="third" class="form-group row "  style=" font-size:18px; color:#006; font-family:'黑体';"  >
              <lable>&nbsp;&nbsp;</lable>
              </div>
             {% else %}
-            <div id = "fourth" class="form-group row" style=" font-size:20px; color:#006; font-family:'黑体';width:100px;">
-             <lable>&nbsp;&nbsp;|{{ student.stu_position }}</lable>
+            <div id ="fourth" class="form-group row " style=" font-size:18px; color:#006; font-family:'黑体';"  >
+             <lable>&nbsp;&nbsp;{{ student.stu_position }}</lable>
              </div>
             {% endif %}
 
-<div class="clear"></div>
+
+<div class="clear">
+
+</div>
+
+
+
+
             {%  if student.stu_enter_time == None %}
             <div class="form-group row">
 
             </div>
             {% else %}
 
-            <div class="form-group row" >
+            <div class="form-group row">
                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/time1.png" />&nbsp;<b>入学时间</b>：{{ student.stu_enter_time}}</h5>
              </div>
             {% endif %}
