@@ -12,7 +12,7 @@ def reset_password(stu_id):
     password =  hashlib.new('md5', request.form.get('password')).hexdigest()
     student.stu_password = password
     add(student)
-    flash(u'密码已修改，重新登录吧')
+    flash(u'密码已修改  重新登录吧')
     return render_template('login.html')
 
 

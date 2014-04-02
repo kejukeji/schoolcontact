@@ -49,10 +49,15 @@
 .pull-right {
   float: right !important;
 }
+    div#first { float: left;}
+    div#second { float: left;}
+    div#third{ display:inline;}
+    div#fourth{ display:inline;}
 b{ font-size:14px; color:#039; font-weight:100; font-family:'黑体';}
 img{ margin-bottom:3px;}
 .navbar-text{ margin:0px; padding-top:4px;}
     .form-group{ margin:0;}
+    .clear{ clear:both;}
 </style>
 </head>
 <body>
@@ -76,25 +81,81 @@ img{ margin-bottom:3px;}
             <img src="/static/img.img.jpg" id="pageImg"  class="img-thumbnail pull-right">
         {% endif %}
 
-            <div class="form-group row"  style=" font-size:20px; color:#006; font-family:'黑体';">
-             <lable>&nbsp;&nbsp;{{ student.stu_company }} | {{ student.stu_position }}</lable>
+            <!--  职位公司信息-->
+            {% if student.stu_company ==None %}
+            <div id = "first" class="form-group row"  style=" font-size:20px; color:#006; font-family:'黑体';" >
+            <lable>&nbsp;&nbsp;暂无信息</lable>
              </div>
-             <div class="form-group row">
+            {% else %}
+            <div id ="second" class="form-group row"  style=" font-size:20px; color:#006; font-family:'黑体';">
+             <lable>&nbsp;&nbsp;{{ student.stu_company }}</lable>
+             </div>
+            {% endif %}
+
+            {% if student.stu_position ==None %}
+            <div id = "third" class="form-group row"  style=" font-size:20px; color:#006; font-family:'黑体'; width:200px;">
+             <lable>&nbsp;&nbsp;</lable>
+             </div>
+            {% else %}
+            <div id = "fourth" class="form-group row" style=" font-size:20px; color:#006; font-family:'黑体';width:100px;">
+             <lable>&nbsp;&nbsp;|{{ student.stu_position }}</lable>
+             </div>
+            {% endif %}
+
+<div class="clear"></div>
+            {%  if student.stu_enter_time == None %}
+            <div class="form-group row">
+
+            </div>
+            {% else %}
+
+            <div class="form-group row" >
                 <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/time1.png" />&nbsp;<b>入学时间</b>：{{ student.stu_enter_time}}</h5>
              </div>
+            {% endif %}
+
+             {%  if student.stu_contact == None %}
+            <div class="form-group row">
+
+             </div>
+            {% else %}
             <div class="form-group row">
                     <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/mail1.png"  />&nbsp;<b>个人邮箱</b>：{{ student.stu_contact }}</h5>
             </div>
+             {% endif %}
+
+
             <div id="profile">
+                {%  if student.stu_tel == None %}
+               <div class="form-group row">
+
+               </div>
+               {% else %}
+
                  <div class="form-group row">
                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/tel1.png"  />&nbsp;<b>手机号码</b>：{{ student.stu_tel }} </h5>
                  </div>
+                {% endif %}
+
+                 {%  if student.account_qq == None %}
+               <div class="form-group row">
+
+               </div>
+               {% else %}
                   <div class="form-group row">
                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/qq.png"  />&nbsp;<b>个人 Q Q</b>：{{ student.account_qq }} </h5>
                  </div>
+                {% endif %}
+
+                {%  if student.account_wechat == None %}
+               <div class="form-group row">
+
+               </div>
+               {% else %}
                   <div class="form-group row">
                      <h5>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<img src="/static/img/wei.png"  />&nbsp;<b>微信账号</b>：{{ student.account_wechat }} </h5>
                  </div>
+                 {% endif %}
 
              </div>
             <div style="text-align:center; line-height:40px; font-family:'微软雅黑'; "  >

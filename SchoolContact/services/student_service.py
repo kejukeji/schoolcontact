@@ -51,7 +51,7 @@ def check_student_is_none(student, temp_str):
         if student.stu_enter_time:
             student.stu_enter_time = str(student.stu_enter_time)[0:10]
         if student.stu_enter_time == None:
-            student.stu_enter_time = temp_str
+            pass
         if student.stu_company == None or student.stu_company == '':
             student.stu_company = temp_str
         if student.industry == '':

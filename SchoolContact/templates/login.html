@@ -37,15 +37,20 @@ a:hover{
             <div class="navbar-text navbar-left">
 
             </div>
+            <div class="form-group row" style="text-align: center" >
+
              {% with messages = get_flashed_messages() %}
                   {% if messages %}
                     <ul>
+
                      {% for message in messages %}
-                 <li style="color:#ff0000">{{ message }} </li>
-                   {% endfor %}
+                         <h4 style="color:#00ff00">{{ message }}</h4>
+                       {% endfor %}
+
                   </ul>
                  {% endif %}
                {% endwith %}
+                </div>
                 <div class="form-group row">
                     <div>
                         <input type="mobile" class="form-control" id="inputMobile" name="inputMobile" placeholder="手机号码">
