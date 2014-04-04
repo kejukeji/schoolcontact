@@ -97,7 +97,11 @@
                 <select class="form-control" name="trade" style="width:100%;">
                      <option value="0">全部</option>
                    {% for i in industry %}
-                      <option value="{{ i.id }}">{{ i.industry_name }}</option>
+                      {% if i.id == trade %}
+                      <option value="{{ i.id }}"  selected="selected">{{ i.industry_name }}</option>
+                       {% else %}
+                       <option value="{{ i.id }}">{{ i.industry_name }}</option>
+                       {% endif %}
                    {% endfor %}
                  </select>
            {% endif %}

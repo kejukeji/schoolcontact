@@ -34,10 +34,12 @@ def to_select_page():
 #关键字查询 ，模糊查询
 def vague_select():
 
-    trade = request.args.get('trade')
-    para = request.args.get('para')
-    current_page = request.args.get('current_page')
-    page_number = request.args.get('page_type')
+    trade = request.args.get('trade')   #获取参数行业
+    para = request.args.get('para')     #获取搜索参数
+    current_page = request.args.get('current_page')  #当前页
+    page_number = request.args.get('page_type')        #翻页参数
+
+
     #返回全部行业的判断
     if trade == '0':
         student_count = vague_with_no_trade_count(para)
@@ -65,26 +67,28 @@ def vague_select():
     if student_count > 1:
         if trade == '0':
            student_selected = vague_with_no_trade_all(para,current_page,per_page)
-           for s in student_selected:
-               check_student_is_none(s,'等待完善')
-               continue
+           #for s in student_selected:
+           #    check_student_is_none(s,'等待完善')
+           #    continue
         else:
             student_selected  = vague_all(trade,para,current_page,per_page)
-            for s in student_selected:
-               check_student_is_none(s,'等待完善')
-               continue
+            #for s in student_selected:
+            #   check_student_is_none(s,'等待完善')
+            #   continue
     else:
         if trade == '0':
             student_selected = vague_with_no_trade_first(para)
-            check_student_is_none(student_selected,'等待完善')
+            #check_student_is_none(student_selected,'等待完善')
         else:
             student_selected = vague_first(trade,para)
-            check_student_is_none(student_selected,'等待完善')
+            #check_student_is_none(student_selected,'等待完善')
     industry_count = Industry.query.filter().count()
     if industry_count > 1:
         industry = Industry.query.filter().all()
     else:
         industry = Industry.query.filter().first()
+
+    trade = int(trade)
 
 
     return render_template('search.html',student_selected = student_selected,
