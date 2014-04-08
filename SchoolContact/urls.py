@@ -11,6 +11,7 @@ from SchoolContact.controls.reset_password import *
 from SchoolContact.controls.select import *
 from .views.all_views import *
 from .views.reset_password_view import *
+from .views.concerned import *
 from .restfuls.verify import weixin
 from SchoolContact.restfuls.get_access_token import get_token
 from SchoolContact.controls.attention import *
@@ -32,3 +33,4 @@ app.add_url_rule('/select_page','select',select,methods=['GET','POST'])
 app.add_url_rule('/oauth', 'oauth', get_token, methods=('GET', 'POST'))
 app.add_url_rule('/vague_search/','vague_select',vague_select,methods=['GET','POST'])
 app.add_url_rule('/attention/<int:stu_id>', 'attention', followers, methods=('GET','POST'))
+app.add_url_rule('/concerned_page/<int:stu_id>','concerned_page',concerned_page,methods=['GET','POST'])

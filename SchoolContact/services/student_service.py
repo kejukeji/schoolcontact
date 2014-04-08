@@ -104,7 +104,8 @@ def get_is_concerned(stu_id, user_id):
     if attention:
         return True
     return False
-
+from flask import  render_template, request
+from SchoolContact.models.industry import *
 
 def get_is_concerned_followers(stu_id):
     '''判断两个人是否相互收藏'''
@@ -122,3 +123,17 @@ def insert_followers(form, stu_id):
     student_id = get_session('student_id')
     attention = Attention(followers=stu_id, is_concerned=student_id)
     add(attention)
+
+
+ #获取关注的人
+def get_user_by_stu_id(stu_id):
+    concerned_count = Attention.query.filter(Attention.is_concerned==stu_id).count()
+    if concerned_count >1:
+        concerned = Attention.query.filter(Attention.is_concerned==stu_id).all()
+    else:
+        concerned = Attention.query.filter(Attention.is_concerned==stu_id).first()
+    return concerned
+def get_user_by_stu_id_count(stu_id):
+    concerned_count = Attention.query.filter(Attention.is_concerned==stu_id).count()
+
+    return concerned_count

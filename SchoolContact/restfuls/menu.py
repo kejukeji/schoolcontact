@@ -76,7 +76,14 @@ menu = """
                    "type":"click",
                    "name": "查找校友",
                    "key": "select"
+               },
+               {
+                   "type":"click",
+                   "name": "已关注校友",
+                   "key": "concerned"
                }
+
+
                     ]
        }
        ]

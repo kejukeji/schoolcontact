@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//WAPFORUM//DTD XHTML Mobile 1.0//EN" "http://www.wapforum.org/DTD/xhtml-mobile10.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+
+    <title>已关注的人</title>
+</head>
+<body  style="color:#00eedd">
+     <h4 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">已关注的校友</h4>
+     <br/>
+  <table style="background-color:#112233; border-collapse:separate border-spacing:0px" width="900px" border="0">
+      <!--<caption> <h4 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">已关注的校友</h4></caption>-->
+      <br/>
+
+      <tr>
+          <th width="200" > </th>
+          <th width="200">昵 称</th>
+          <th width="200">公司</th>
+          <th width="200">职位</th>
+          <th width="200">联系方式</th>
+      </tr>
+      {%   for i in students %}
+      <tr>
+          <td style="text-align:center" ><img src="{{ i.avatar_img_url}}" width="90" height="80"/></td>
+          <td width="200">{{ i.stu_name }}</td>
+          <td width="200">{{i.stu_company}}</td>
+          <td width="200">{{i.stu_position}}</td>
+          <td width="200">{{i.stu_tel}}</td>
+      </tr>
+
+      {% endfor %}
+
+  </table>
+
+</body>
+</html>

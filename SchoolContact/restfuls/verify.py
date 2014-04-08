@@ -126,6 +126,9 @@ def response_event(xml_recv, web_chat):
     if (Event == 'CLICK') and (EventKey == 'select'):
         Content = '请点击此链接<a href="'+ BASE_URL +'/select_page">结识校友</a>'
         reply_dict = response_event_message(FromUserName, ToUserName, Content)
+    if (Event == 'CLICK') and (EventKey == 'concerned'):
+        Content = '请点击此链接<a href="'+ BASE_URL +'/concerned_page/'+boolean+'">结识校友</a>'
+        reply_dict = response_event_message(FromUserName, ToUserName, Content)
     return response(web_chat, reply_dict, "text")
 
 
