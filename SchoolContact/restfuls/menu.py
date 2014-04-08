@@ -89,6 +89,7 @@ menu = """
        ]
 }
 """
+webChat.delete_menu()
 webChat.create_menu(menu)
 
 #request = urllib2.urlopen(posturl, menu.encode('utf-8') )

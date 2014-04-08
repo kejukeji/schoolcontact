@@ -12,9 +12,11 @@ def concerned_page(stu_id):
         for i in user_concerned:
             student = get_stu_by_id(i.followers)
             students.append(student)
-    else:
+    elif user_concerned_count ==1:
         students = get_stu_by_id(user_concerned.followers)
+    else:
+        pass
 
-    return render_template('/concerned_page.html',students = students)
+    return render_template('/concerned_page.html',students = students,user_concerned_count=user_concerned_count)
 
 

@@ -2,7 +2,9 @@
 
 import hashlib
 import urllib2
+import urllib
 import json
+
 from .message import msg_format
 
 
@@ -27,6 +29,12 @@ class WebChat(object):
     def create_menu(self, menu_string):
         menu_url = self.create_menu_url()
         urllib2.urlopen(menu_url, menu_string.encode('utf-8'))
+
+    def delete_menu(self):
+        '''删除菜单'''
+        access_token = self.get_access_token()
+        delete_menu_url = "https://api.weixin.qq.com/cgi-bin/menu/delete?access_token=%s" %(access_token)
+        urllib2.urlopen(delete_menu_url)
 
     def oauth_user_info(self):
         '''得到授权后的json字符串'''
@@ -69,6 +77,37 @@ class WebChat(object):
         access_token = self.get_access_token()
         return "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" + str(access_token)
 
+    def get_ticket_url(self):
+        '''获取ticket永久二维码的url'''
+        access_token = self.get_access_token()
+        url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=%s" %(access_token)
+        return url
+
+    def get_ticket(self):
+        '''获取ticket换取二维码的凭证'''
+        body = {
+                    "action_name": "QR_LIMIT_SCENE",
+                    "action_info": {
+                        "scene": {
+                            "scene_id": 1
+                        }
+                    }
+                }
+        ticket_url = self.get_ticket_url()
+        result_string = urllib2.urlopen(ticket_url, body)
+        return json.loads(result_string)['ticket']
+
+    def exchange_by_ticket(self):
+        '''根据ticket换取二维码'''
+        ticket = self.get_ticket()
+        dic = {'key':str(ticket)}
+        result = urllib.urlencode(dic)
+        ticket = result.split('=')[1]
+        exchange_by_ticket_url = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=%s" %(ticket)
+        json_string = urllib2.urlopen(exchange_by_ticket_url)
+        result = json.loads(json_string)['url']
+        return result
+
     def get_user_info(self, openid):
         '''根据openid获取用户信息'''
         access_token = self.get_access_token()
@@ -82,3 +121,4 @@ class WebChat(object):
     @staticmethod
     def reply(msg_type, msg_dict):
         return msg_format(msg_type, msg_dict)
+
