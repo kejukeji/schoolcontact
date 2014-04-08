@@ -3,89 +3,155 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 
+    <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="format-detection" content="email=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
 
-    <title>已关注的人</title>
+    <title>已关注校友</title>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/css/bootstrap.min.css">
+
+    <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
+ <style>
+    ul{
+     min-height: 30px;
+     }
+	.work{
+	 font-size:12px;
+	}
+	h5{ color:#F90;}
+	.fl{
+		float:left;
+	}
+	li{
+     list-style-type:none; float:left;
+     width: 20%;
+     }
+        .mark_none{
+            display: none;
+        }
+        .mark_show{
+            display: inline
+        }
+
+
+       width:400px;
+       vertical-align:middle;
+       line-height:60px;
+        }
+        #center1{
+        MARGIN-RIGHT: auto;
+       MARGIN-LEFT: auto;
+       height:60px;
+
+       width:400px;
+       vertical-align:middle;
+       line-height:60px;
+        }
+        .form-group{ margin-top:0;}
+       li img{ margin-right:15px;}
+       .j{
+     padding: 30px;
+    margin-bottom: 30px;
+    font-size: 12px;
+    font-weight: 200;
+    line-height: 2.1428571435;
+    color: inherit;
+    background-color: #eee;
+     }
+	</style>
 </head>
-<body  style="color:#00eedd">
-     <h3 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">已关注的校友</h3>
-     <br/>
+<body>
 
-     {% if user_concerned_count == 0 %}
-     <div class="jumbotron">
+<div class="container">
+    <div>
+        <h2 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">专属校友录</h2>
+    </div>
+    <br>
+    <div style="border-top: 10px;border-bottom: 20px">
+
+         &nbsp;<h4 style="margin-bottom:-20px;font-family: '微软雅黑';color:#FE7700;">已关注的校友</h4>
+        </br>
+        </br>
+    </div>
+
+    <div class="j">
+
+    {% if user_concerned_count == 0 %}
+   <div class="container">
+     <div class="j">
          <div style="text-align:center">
 
            <h5>还未关注任何校友</h5>
          </div>
-     </div>
-     {% elif user_concerned == 1 %}
-     <div class="jumbotron">
-         <div>
-             <center>
-              <table style="background-color:#ff2233; border-collapse:separate;border-spacing:0px" width="800px" border="0">
-      <!--<caption> <h4 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">已关注的校友</h4></caption>-->
-      <br/>
-
-      <tr>
-          <th width="200" > </th>
-          <th width="200">昵 称</th>
-          <th width="200">公司</th>
-          <th width="200">职位</th>
-          <th width="200">联系方式</th>
-      </tr>
-
-       <a href="/show_message/{{students.id}}">
-       <tr>
-
-          <td style="text-align:center" ><img src="{{ students.avatar_img_url}}" width="100" height="80"/></td>
-          <td width="200" style="text-align:center">{{ students.stu_name }}</td>
-          <td width="200" style="text-align:center">{{students.stu_company}}</td>
-          <td width="200" style="text-align:center">{{students.stu_position}}</td>
-          <td width="200" style="text-align:center">{{students.stu_tel}}</td>
-
-      </tr>
-       </a>
-  </table>
-   </center>
-
-         </div>
-     </div>
-     {% else %}
-   <div class="jumbotron">
-     <div style="text-align:center">
-         <center>
-
-  <table style="background-color:#445544; border-collapse:separate; border-spacing:10px" width="800px" border="0">
-      <!--<caption> <h4 style="margin-bottom:-20px;font-family: '微软雅黑';color: deepskyblue">已关注的校友</h4></caption>-->
-      <br/>
-
-      <tr>
-          <th width="200" > </th>
-          <th width="200">昵 称</th>
-          <th width="200">公司</th>
-          <th width="200">职位</th>
-          <th width="200">联系方式</th>
-      </tr>
-      {%   for i in students %}
-       <a href="/show_message/{{i.id}}">
-      <tr>
-
-          <td style="text-align:center" ><img src="{{ i.avatar_img_url}}" width="100" height="80"/></td>
-          <td width="200" style="text-align:center">{{ i.stu_name }}</td>
-          <td width="200" style="text-align:center">{{i.stu_company}}</td>
-          <td width="200" style="text-align:center">{{i.stu_position}}</td>
-          <td width="200" style="text-align:center">{{i.stu_tel}}</td>
-
-      </tr>
-      </a>
-
-      {% endfor %}
+      </div>
+    {% elif user_concerned == 1 %}
+   <div class="container">
+       <!--标题-->
+      <div class="list">
+          <ul width="300">
+               <li width="300">&nbsp;&nbsp; &nbsp;&nbsp;   &nbsp;&nbsp; &nbsp;&nbsp; </li>
+               <li width="300">&nbsp;&nbsp; &nbsp;&nbsp;昵 称&nbsp;&nbsp;  &nbsp;&nbsp;</li>
+               <li width="300">&nbsp;&nbsp; &nbsp;&nbsp;公司&nbsp;&nbsp;  &nbsp;&nbsp;</li>
+               <li width="300">&nbsp;&nbsp; &nbsp;&nbsp;职位&nbsp;&nbsp;  &nbsp;&nbsp;</li>
+               <li width="300">&nbsp;&nbsp; &nbsp;&nbsp;联系方式&nbsp;&nbsp;  &nbsp;&nbsp;</li>
+          </ul>
 
 
-  </table>
-       </center>
-     </div>
+      </div>
+       <!--  一条关注 -->
+       <br>
+       <br>
+       <div class="list">
+           <a href="/show_message/{{students.id}}">
+          <ul width="300">
+               <li><img src="{{students.avatar_img_url}}" width="80" height="80"/>}</li>
+               <li width="300">&nbsp;&nbsp;&nbsp;&nbsp;{{students.stu_name}}&nbsp;&nbsp;&nbsp;&nbsp;</li>
+               <li width="300">&nbsp;&nbsp;&nbsp;&nbsp;{{students.stu_company}}&nbsp;&nbsp;&nbsp;&nbsp;</li>
+               <li width="300">&nbsp;&nbsp;&nbsp;&nbsp;{{students.stu_position}}&nbsp;&nbsp;&nbsp;&nbsp;</li>
+               <li width="300">&nbsp;&nbsp;&nbsp;&nbsp;{{students.stu_tel}}&nbsp;&nbsp;&nbsp;&nbsp;</li>
+          </ul>
+               </a>
+
+
+      </div>
+
+
+    {% else %}
+       <div class="list">
+           <!-- 标题-->
+          <ul width="300">
+              <li width="80">  &nbsp;&nbsp;  &nbsp;&nbsp;   &nbsp;&nbsp; &nbsp;&nbsp;</li>
+               <li width="300">  &nbsp;&nbsp;  &nbsp;&nbsp;  昵称   &nbsp;&nbsp; &nbsp;&nbsp; </li>
+               <li width="300">  &nbsp;&nbsp; &nbsp;&nbsp;  公司 &nbsp;&nbsp;  &nbsp;&nbsp;  </li>
+               <li width="300"> &nbsp;&nbsp; &nbsp;&nbsp;  职位  &nbsp;&nbsp; &nbsp;&nbsp;  </li>
+               <li width="300">  &nbsp;&nbsp;  &nbsp;&nbsp; 联系方式   &nbsp;&nbsp;&nbsp;&nbsp;    </li>
+          </ul>
+
+       </div>
+       <!-- 多条关注-->
+       {% for i in students %}
+       <br>
+       <br>
+       <div class="list">
+           <a href="/show_message/{{i.id}}">
+          <ul width="300">
+               <li>&nbsp;&nbsp;  &nbsp;&nbsp;<img src="{{i.avatar_img_url}}" width="80" height="80"/></li>
+               <li width="300">&nbsp;&nbsp;  &nbsp;&nbsp;{{i.stu_name}}&nbsp;&nbsp;  &nbsp;&nbsp;</li>
+               <li width="300">&nbsp;&nbsp;  &nbsp;&nbsp;{{i.stu_company}}&nbsp;&nbsp;  &nbsp;&nbsp;</li>
+               <li width="300">&nbsp;&nbsp;  &nbsp;&nbsp;{{i.stu_position}}&nbsp;&nbsp;  &nbsp;&nbsp;</li>
+               <li width="300">&nbsp;&nbsp;  &nbsp;&nbsp;{{i.stu_tel}}&nbsp;&nbsp;  &nbsp;&nbsp;</li>
+          </ul>
+</a>
+
+      </div>
+       {% endfor %}
+
+        {% endif %}
+ </div>
 </div>
-{% endif %}
-
 </body>
+
 </html>
