@@ -33,15 +33,12 @@
        })
     </script>
     <style>
-
-	.work{
-	 font-size:12px;
-	}
-	h5{ color:#F90;}
-	.fl{
-		float:left;
-	}
-	li{ list-style-type:none;}
+        html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6,  {
+                margin: 0;
+                padding: 0;
+            }
+.fl{ float:left;}
+li{ list-style-type:none;}
         .mark_none{
             display: none;
         }
@@ -54,18 +51,38 @@
        vertical-align:middle;
        line-height:60px;
         }
-        #center1{
-        MARGIN-RIGHT: auto;
-       MARGIN-LEFT: auto;
-       height:60px;
+.clear{ clear:both;}
+*{margin:0px;padding:0px;}
+body{ background:#eee;}
+.top{ width:100%; text-align:center; background:#03C; height:40px;}
+.top h3{ font-family:"微软雅黑"; font-size:16px; font-weight:bold; color:#FFF; line-height:40px;}
+.no{ width:80%; background:#FFF; height:50px; margin:auto; text-align:center; margin-top:10px;}
+.no h3{ line-height:50px; color:#F30;  font-weight:bold; font-size:16px;}
+.list{ width:100%; background:#fff; height:60px; margin-top:10px; border-bottom:1px solid #CCC; border-top:1px solid #CCC; }
+.list ul{ width:96%; margin:auto; padding:4px 0; }
+.list img{ width:50px; height:50px;}
+.text{ width:100% !important; margin:0; padding:0;}
+.text li{ margin-bottom:-8px; height:25px; }
+.text i{ font-family:"微软雅黑"; color:#666; font-size:12px;}
 
-       width:400px;
-       vertical-align:middle;
-       line-height:60px;
+
+	.work{
+	 font-size:12px;
+	  }
+	h5{ color:#F90;}
+    #center1{
+        MARGIN-RIGHT: auto;
+        MARGIN-LEFT: auto;
+        height:60px;
+        width:400px;
+        vertical-align:middle;
+        line-height:60px;
         }
         .jumbotron{ margin-top:0; padding-top:5px;}
         .form-group{ margin-top:0;}
        li img{ margin-right:15px;}
+
+
 
 	</style>
 </head>
@@ -124,42 +141,38 @@
     </div>
     {% elif student_count == 1 %}
     <!--按条件查找出来的信息-->
-      <div id ="center1">
-            <ul class="ul-group">
-            <li class="fl">
-        <a href="/show_message/{{student_selected.id}}">
-        {% if student_selected.avatar_img_url %}
-        <img src="{{ student_selected.avatar_img_url }}" width="50px" height="60px"  class="img-thumbnail pull-right">
-        {% else %}
-            <img src="/static/img.img.jpg"  class="img-thumbnail pull-right">
-        {% endif %}
-           <li > <h5>{{ student_selected.stu_name }}</h5>
-                <p class="work">{{ student_selected.stu_position }}| {{ student_selected.stu_company}}</p>
-            </li>
-            </a>
-            </ul>
+<div class="list">
+<a href="/show_message/{{student_selected.id}}">
+<ul>
+<li class="fl" style="width:20%;"><img src="{{ student_selected.avatar_img_url}}" /></li>
+<li class="fl">
+<ul class="text">
+<li><h5>{{ student_selected.name}}</h5></li>
+<li><p><i>{{student_selected.stu_position}}</i>&nbsp;&nbsp;<i>{{student_selected.stu_company}}</i></p></li>
+</ul>
+</li>
+</ul>
+</a>
+</div>
+<div class="clear"></div>
+ {% else %}
+    {%   for s in student_selected %}
+<div class="list">
 
-      </div>
-    {% else %}
-        {% for s in student_selected %}
-      <div id ="center">
-
-          <a href="/show_message/{{s.id}}">
-           <ul class="ul-group">
-            <li class="fl">
-            {% if s.avatar_img_url %}
-           <img src="{{ s.avatar_img_url }}" width="50px" height="60px"  class="img-thumbnail pull-right">
-           {% else %}
-            <img src="/static/img.img.jpg"  class="img-thumbnail pull-right">
-           {% endif %}
-               &nbsp;&nbsp;
-            <li> <h4>{{ s.stu_name }}</h4>
-                <p class="work">{{ s.stu_position }}| {{ s.stu_company}}</p>
-            </li>
-            </ul>
-            </a>
-       </div>
-         {% endfor %}
+<a href="/show_message/{{s.id}}">
+<ul>
+<li class="fl" style="width:20%;"><img src="{{s.avatar_img_url}}" /></li>
+<li class="fl">
+<ul class="text">
+<li><h5>{{ s.stu_name}}</h5></li>
+<li><p><i>{{s.stu_position}}</i>&nbsp;&nbsp;<i>{{s.stu_company}}</i></p></li>
+</ul>
+</li>
+</ul>
+</a>
+</div>
+<div class="clear"></div>
+     {% endfor %}
       <center>
        <div class="jumbotron m" >
            <nowrap>
