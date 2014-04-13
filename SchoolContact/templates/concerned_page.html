@@ -14,23 +14,7 @@
 
     <script src="http://cdn.bootcss.com/jquery/1.10.2/jquery.min.js"></script>
     <script src="http://cdn.bootcss.com/twitter-bootstrap/3.0.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
-       $(function(){
-           $("#e_time").datepicker();
-           var aElement = $(".m a")
-               for (var i = 0; i < aElement.length; i++){
-                    aElement.get(i).className = 'mark_none'
-               }
-           var mark = '{{ mark }}'
-           if (mark == 'mark'){
-                var aElement = $(".m a")
-               for (var i = 0; i < aElement.length; i++){
-                    aElement.get(i).className = 'mark_show'
-               }
-           }
 
-       })
-    </script>
 </head>
 <style>
 html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6,  {
@@ -38,13 +22,8 @@ html, body, div, p, ul, li, dl, dt, dd, h1, h2, h3, h4, h5, h6,  {
                 padding: 0;
             }
 .fl{ float:left;}
-li{ list-style-type:none;}
-        .mark_none{
-            display: none;
-        }
-        .mark_show{
-            display: inline
-        }
+li{ list-style-type:none; }
+
        width:400px;
        vertical-align:middle;
        line-height:60px;
@@ -113,18 +92,18 @@ body{ background:#eee;}
 
 <div class="clear"></div>
 {% endfor %}
-<!--<center>-->
-       <!--<div class="jumbotron m" >-->
-           <!--<nowrap>-->
-           <!--<a href="/concerned_page/{{ stu_id }}?current_page=1"  title="首页">首页</a>-->
-           <!--<a href="/concerned_page/{{ stu_id }}?current_page={{current_page}}-1"  title="上一页">上一页</a>-->
-           <!--&lt;!&nbsp;<a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{current_page}}" title ="当前页">第{{current_page}}页</a>&ndash;&gt;-->
+<center>
+       <div class="jumbotron m" style="font-size:13px" >
+           <nowrap>
+           <a href="/concerned_page/{{ stu_id }}?current_page=1"  title="首页">首页</a>
+           <a href="/concerned_page/{{ stu_id }}?current_page={{current_page}}&page_type=up"  title="上一页">上一页</a>
+           <!--&nbsp;<a href="/vague_search/?trade={{trade}}&para={{para}}&current_page={{current_page}}" title ="当前页">第{{current_page}}页</a>-->
 
-           <!--<a href="/concerned_page/{{ stu_id }}?current_page={{current_page}}+1"   title="下一页 ">下一页</a>-->
-           <!--<a href="/concerned_page/{{ stu_id }}?current_page={{max_page}}"   title ="最后一页">尾页</a>-->
-           <!--</nowrap>-->
-       <!--</div>-->
-       <!--</center>-->
+           <a href="/concerned_page/{{ stu_id }}?current_page={{current_page}}&page_type=next"   title="下一页 ">下一页</a>
+           <a href="/concerned_page/{{ stu_id }}?current_page={{max_page}}"   title ="最后一页">尾页</a>
+           </nowrap>
+       </div>
+       </center>
 
 
 {% endif %}
