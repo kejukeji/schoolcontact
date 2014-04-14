@@ -27,10 +27,12 @@ def register_action():
 
 def show_message(stu_id):
     student = get_stu_by_id(stu_id)
+    industry_id = student.industry_id
     openid = request.args.get('openid','')
     change = request.form.get('change')
     from_out = request.args.get('from')
     booleans = 'false'
+    industry = get_industry_by_industry_id(industry_id)
     if from_out:
         booleans = 'true'
     if change == 'yes':
@@ -38,7 +40,8 @@ def show_message(stu_id):
         return render_template('message_of_you.html',
                                student = student,
                                mark='',
-                               booleans=booleans)
+                               booleans=booleans,
+                               industry = industry)
     student.stu_enter_time = str(student.stu_enter_time)[0:10]
     #check_student_is_none(student,'等待完善')
     user_id = get_session('student_id')
@@ -47,7 +50,8 @@ def show_message(stu_id):
         return render_template('message_of_you.html',
                                student = student,
                                mark='',
-                               booleans=booleans)
+                               booleans=booleans,
+                               industry = industry)
     collect = request.args.get('collect','no')
     if collect == 'yes':
         insert_followers(request.form, stu_id)
@@ -60,7 +64,8 @@ def show_message(stu_id):
         return render_template('message_of_you.html',
                                student = student,
                                mark='',
-                               booleans=booleans)
+                               booleans=booleans,
+                               industry = industry)
     else:
         is_true = get_is_concerned_followers(stu_id) # 判断是否收藏
         if is_true:
@@ -68,13 +73,15 @@ def show_message(stu_id):
                                    student = student,
                                    mark='true',
                                    message=message,
-                                   booleans=booleans)
+                                   booleans=booleans,
+                                   industry = industry)
         else:
             return render_template('message_of_you.html',
                                student = student,
                                mark='false',
                                message=message,
-                               booleans=booleans)
+                               booleans=booleans,
+                               industry = industry)
 
 
 

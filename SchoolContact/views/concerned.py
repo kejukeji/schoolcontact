@@ -32,6 +32,8 @@ def concerned_page(stu_id):
     if user_concerned_count > 1:
         for i in user_concerned:
             student = get_stu_by_id(i.followers)
+            industry_type = get_industry_by_industry_id(student.industry_id)
+            student.industry_type= industry_type.industry_name
             students_all.append(student)
             fro =(current_page-1) * 5 + 1
             to = current_page * 5+1
@@ -39,6 +41,8 @@ def concerned_page(stu_id):
 
     elif user_concerned_count ==1:
           students = get_stu_by_id(user_concerned.followers)
+          industry_type = get_industry_by_industry_id(students.industry_id)
+          students.industry_type= industry_type.industry_name
     else:
         pass
 

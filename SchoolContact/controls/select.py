@@ -58,7 +58,7 @@ def vague_select():
     else:
         pass
 
-    per_page = 5 #每页显示条数s
+    per_page = 5 #每页显示条数
 
     max_page =(student_count-1)/per_page + 1
     if current_page > max_page or current_page <= 0:
@@ -69,20 +69,34 @@ def vague_select():
     if student_count > 1:
         if trade == '0':
            student_selected = vague_with_no_trade_all(para,current_page,per_page)
+            #显示行业类型
+           for student in student_selected:
+                industry_type = get_industry_by_industry_id(student.industry_id)
+                if industry_type:
+                    student.industry_type = industry_type.industry_name
            #for s in student_selected:
            #    check_student_is_none(s,'等待完善')
            #    continue
         else:
             student_selected  = vague_all(trade,para,current_page,per_page)
+            #显示行业类型
+            for student in student_selected:
+                industry_type = get_industry_by_industry_id(student.industry_id)
+                if industry_type:
+                    student.industry_type = industry_type.industry_name
             #for s in student_selected:
             #   check_student_is_none(s,'等待完善')
             #   continue
     else:
         if trade == '0':
             student_selected = vague_with_no_trade_first(para)
+            industry_type = get_industry_by_industry_id(student_selected.industry_id)
+            student_selected.industry_type= industry_type.indusrty_name
             #check_student_is_none(student_selected,'等待完善')
         else:
             student_selected = vague_first(trade,para)
+            industry_type = get_industry_by_industry_id(student_selected.industry_id)
+            student_selected.industry_type= industry_type.indusrty_name
             #check_student_is_none(student_selected,'等待完善')
     industry_count = Industry.query.filter().count()
     if industry_count > 1:

@@ -53,6 +53,8 @@
      #second{margin:auto;text-align:center;}
      #third{margin:auto;text-align:center;}
      #fourth{margin:auto;text-align:center;}
+    #sec{margin:auto;text-align:center;}
+
 
 
 b{ font-size:14px; color:#039; font-weight:100; font-family:'黑体';}
@@ -76,8 +78,9 @@ img{ margin-bottom:3px;}
 
     <div class="jumbotron">
         <form class="form-horizontal"  role="form" action="/change/{{ student.id }}" method="POST" id="profileForm">
-            <div class="navbar-text navbar-right">
-            </div>
+           <div id="sec" class="form-group row"  style=" font-size:18px; color:#006; font-family:'黑体';" >
+             <lable>&nbsp;&nbsp;{{ industry.industry_name }}</lable>
+             </div>
 
         {% if student.avatar_img_url %}
              <center>

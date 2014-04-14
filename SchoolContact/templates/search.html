@@ -79,7 +79,8 @@ body{ background:#eee;}
         }
         .jumbotron{ margin-top:0; padding-top:5px;}
         .form-group{ margin-top:0;}
-       li img{ margin-right:15px;}
+       li img{ margin-right:15px;
+           display:inline;}
 
 
 
@@ -146,8 +147,8 @@ body{ background:#eee;}
 <li class="fl" style="width:20%;"><img src="{{ student_selected.avatar_img_url}}" /></li>
 <li class="fl">
 <ul class="text">
-<li><h5>{{ student_selected.name}}</h5></li>
-<li><p><i>{{student_selected.stu_position}}</i>&nbsp;&nbsp;<i>{{student_selected.stu_company}}</i></p></li>
+<li><h5>{{ student_selected.name}}&nbsp;&nbsp;&nbsp;&nbsp;{{student_selected.industry_type}}</h5></li>
+<li><p><i>{{student_selected.stu_position}}</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>{{student_selected.stu_company}}</i></p></li>
 </ul>
 </li>
 </ul>
@@ -163,8 +164,9 @@ body{ background:#eee;}
 <li class="fl" style="width:20%;"><img src="{{s.avatar_img_url}}" /></li>
 <li class="fl">
 <ul class="text">
-<li><h5>{{ s.stu_name}}</h5></li>
-<li><p><i>{{s.stu_position}}</i>&nbsp;&nbsp;<i>{{s.stu_company}}</i></p></li>
+<li><h5>{{ s.stu_name}} &nbsp;&nbsp; &nbsp;&nbsp; &nbsp;&nbsp;{{s.industry_type}}</h5></li>
+<li><p><i>{{s.stu_position}}</i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<i>{{s.stu_company}}</i></p></li>
+
 </ul>
 </li>
 </ul>
