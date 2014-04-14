@@ -12,9 +12,23 @@ def concerned_page(stu_id):
         current_page =1
     else:
        current_page = int(current_page)
+     #翻页
+    if page_number == 'up':
+        current_page = int(current_page) -1
+    elif page_number=='next':
+        current_page = int(current_page) +1
+    else:pass
+
     user_concerned_count = get_user_by_stu_id_count(stu_id)
     user_concerned = get_user_by_stu_id(stu_id)
     students_all =[]
+    per_page=5
+    max_page= (user_concerned_count-1)/per_page+1
+    if current_page > max_page or current_page < 1:
+        current_page = 1
+    else:
+        pass
+
     if user_concerned_count > 1:
         for i in user_concerned:
             student = get_stu_by_id(i.followers)
@@ -27,16 +41,7 @@ def concerned_page(stu_id):
           students = get_stu_by_id(user_concerned.followers)
     else:
         pass
-    per_page=5
-    max_page= (user_concerned_count-1)/per_page+1
-    if page_number == 'up':
-        current_page = int(current_page) -1
-    else:
-        current_page = int(current_page) +1
-    if current_page > max_page or current_page < 1:
-        current_page = 1
-    else:
-        pass
+
 
 
     return render_template('/concerned_page.html',students = students,

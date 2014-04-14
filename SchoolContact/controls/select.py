@@ -53,8 +53,10 @@ def vague_select():
        current_page = int(current_page)
     if page_number == 'up':
         current_page = int(current_page) -1
-    else:
+    elif page_number=='next':
         current_page = int(current_page) +1
+    else:
+        pass
 
     per_page = 5 #每页显示条数s
 
